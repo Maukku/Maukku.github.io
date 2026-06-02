@@ -1,447 +1,412 @@
+
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>マーカスのブログへようこそ</title>
-        <style>
-            body {
-                margin: 0;
-                height: 150vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background-color: #f9f9f9;
-                font-family: Arial, sans-serif;
-                text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-                animation: fadeBackground 15s infinite alternate;
-            }
-            
-            #typing {
-                font-size: 5em;
-                color: #333;
-                white-space: pre;
-            }
-            
-            .cursor {
-                display: inline-block;
-                width: 1ch;
-                font-size: 4.5em;
-                animation: blink 1s steps(1) infinite;
-                opacity: 1;
-            }
-            
-            @keyframes blink {
-                50% { opacity: 0; }
-            }
-            
-            .box-container {
-                margin-top: 40px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-                opacity: 0;
-                transition: opacity 2s ease;
-                max-width: 1400px;
-            }
-            
-            .box {
-                width: 350px;
-                height: 350px;
-                background-color: #fff;
-                border: 2px solid #ddd;
-                border-radius: 12px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-                overflow: hidden;
-                font-weight: bold;
-                cursor: pointer;
-                transition: transform 0.5s ease;
-                transform-origin: center center;
-                position: relative;
-            }
-            
-            .box:hover {
-                transform: scale(1.05);
-            }
-            
-            .box img {
-                width: 80%;
-                height: auto;
-                object-fit: cover;
-                border-radius: 12px 12px 12px 12px;
-                margin-top: 20px;
-            }
-            
-            .box .title {
-                font-family: 'Zen Maru Gothic', sans-serif;
-                font-size: 1.7em;
-                font-weight: bold;
-                text-align: center;
-                color: #222;
-                text-shadow: 1px 1px 0 #fff, 2px 2px 0 #000;
-            }
-            
-            .box .content {
-                font-size: 1em;
-                color: #333;
-                margin: 20px;
-                text-align: justify;
-                position: relative;
-                height: 20%;
-                overflow: hidden;
-                width: 90%;
-            }
-            
-            .box .content::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 40px;
-                background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
-            }
-            
-            .expanded {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(1);
-                width: 80%;
-                max-width: 1000px;
-                height: auto;
-                max-height: 80vh;
-                z-index: 1000;
-                background-color: white;
-                border-radius: 16px;
-                overflow: auto;
-                padding: 20px;
-                box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-                transition: all 0.5s ease;
-            }
-            
-            .box.closing {
-                transform: translate(-50%, -50%) scale(0.5);
-                opacity: 0;
-                transition: all 0.5s ease;
-            }
-            
-            .expanded img {
-                width: 50%;
-                max-height: 800px;
-                object-fit: cover;
-                margin: 0 auto 10px auto;
-                border-radius: 12px;
-            }
-            
-            .close-btn {
-                position: absolute;
-                top: 10px;
-                right: 15px;
-                background: none;
-                border: none;
-                font-size: 1.5em;
-                cursor: pointer;
-                color: #555;
-            }
-            
-            .expanded::-webkit-scrollbar {
-                width: 8px;
-            }
-            
-            .expanded::-webkit-scrollbar-thumb {
-                background-color: rgba(0,0,0,0.2);
-                border-radius: 4px;
-            }
-            
-            .expanded-description {
-                font-size: 1.5em;
-                padding: 10px 20px;
-                color: #444;
-            }
-            
-            .hidden {
-                display: none;
-            }
-            
-            @keyframes fadeBackground {
-                0% { background-color: #ffffff; }
-                50% { background-color: #d0d0d0; }
-                100% { background-color: #ffffff; }
-            }
-            
-            .cursor-ball {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 20px;
-                height: 20px;
-                background-color: rgba(0, 0, 0, 0.5);
-                border-radius: 50%;
-                pointer-events: none;
-                z-index: 9999;
-                transform: translate(-50%, -50%);
-            }
-            
-            
-            #signature {
-                position: fixed;
-                left: 10px; /* Asetetaan vasempaan reunaan */
-                bottom: 10px; /* Asetetaan alas */
-                font-size: 1.5em;
-                color: #333;
-                opacity: 0.7;
-            }
-        </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Japanese Tour in Porvoo</title>
+  <style>
+    :root {
+      --bg: #f7f1ea;
+      --paper: #fffaf5;
+      --card: rgba(255,255,255,0.88);
+      --text: #2c1f18;
+      --muted: #6f5a4f;
+      --accent: #9a4f31;
+      --accent-2: #be7e60;
+      --line: #eadcd1;
+      --success: #3b7a57;
+      --shadow: 0 20px 50px rgba(69, 39, 24, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(190,126,96,.12), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(154,79,49,.10), transparent 30%),
+        linear-gradient(180deg, #f8f3ee 0%, #f7f1ea 40%, #f2e8df 100%);
+      min-height: 100vh;
+      line-height: 1.55;
+    }
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    .hero-wrap { padding: 34px 0 28px; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      background:
+        linear-gradient(135deg, rgba(44,31,24,.84), rgba(92,58,42,.55)),
+        linear-gradient(45deg, #7b4b37, #6d5e57 50%, #b58972);
+      min-height: 460px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: stretch;
+    }
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.18), transparent 20%),
+        radial-gradient(circle at 74% 0%, rgba(255,255,255,.12), transparent 18%),
+        linear-gradient(to bottom, rgba(255,255,255,.05), rgba(0,0,0,.18));
+      pointer-events: none;
+    }
+    .hero-copy { padding: 52px 48px; color: #fff8f3; position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px;
+      background: rgba(255,255,255,.14); backdrop-filter: blur(6px); font-size: 13px; letter-spacing: .12em;
+      text-transform: uppercase; color: #f8e6d9;
+    }
+    h1 {
+      font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2.4rem, 5.4vw, 4.2rem);
+      line-height: 1.04; margin: 18px 0 18px; letter-spacing: -.02em; max-width: 11ch;
+    }
+    .hero-copy p { max-width: 60ch; color: rgba(255,248,243,.92); font-size: 1.05rem; margin: 0 0 18px; }
+    .hero-facts { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 0; }
+    .fact-pill {
+      padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.14); color: #fff;
+      border: 1px solid rgba(255,255,255,.16); font-size: .96rem;
+    }
+    .hero-side { position: relative; display: grid; place-items: center; padding: 28px; }
+    .portrait-card {
+      width: min(100%, 380px); aspect-ratio: 4 / 5; border-radius: 28px;
+      background: linear-gradient(180deg, rgba(248,231,214,.96), rgba(236,211,191,.88));
+      border: 1px solid rgba(255,255,255,.35); box-shadow: 0 24px 60px rgba(33, 19, 14, .18);
+      position: relative; overflow: hidden; padding: 28px; color: #3c251b;
+    }
+    .portrait-card:before {
+      content: "Porvoo"; position: absolute; top: 18px; right: -8px; font-family: Georgia, serif; font-size: 5.8rem;
+      line-height: 1; color: rgba(122, 70, 44, .07); transform: rotate(-6deg); pointer-events: none;
+    }
+    .scene {
+      position: absolute; inset: auto 18px 18px 18px; height: 42%; border-radius: 22px;
+      background: linear-gradient(180deg, #d9e5ef 0%, #d7e7f1 44%, #7da2bd 45%, #55738d 100%); overflow: hidden;
+    }
+    .shore, .shore2, .roof, .roof2, .house, .house2, .house3, .church { position: absolute; }
+    .shore { left: 0; right: 0; bottom: 0; height: 40%; background: linear-gradient(180deg, #866451, #7c5543); }
+    .shore2 { left: 0; right: 0; bottom: 30%; height: 8px; background: rgba(255,255,255,.35); }
+    .house { width: 90px; height: 74px; left: 28px; bottom: 34%; background: #b2412a; }
+    .roof { width: 98px; height: 18px; left: 24px; bottom: calc(34% + 74px); background: #4b2e25; transform: skew(-22deg); }
+    .house2 { width: 82px; height: 62px; left: 120px; bottom: 34%; background: #a63b28; }
+    .roof2 { width: 88px; height: 16px; left: 116px; bottom: calc(34% + 62px); background: #41261e; transform: skew(-20deg); }
+    .house3 { width: 70px; height: 54px; left: 200px; bottom: 34%; background: #be5538; }
+    .church {
+      width: 0; height: 0; right: 24px; bottom: 34%; border-left: 28px solid transparent;
+      border-right: 28px solid transparent; border-bottom: 120px solid #efeee9; filter: drop-shadow(0 10px 20px rgba(0,0,0,.12));
+    }
+    .portrait-top { position: relative; z-index: 2; max-width: 230px; }
+    .mini-label { display: inline-block; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: #8d5d48; margin-bottom: 14px; }
+    .portrait-card h2 { font-family: Georgia, serif; margin: 0 0 10px; font-size: 1.9rem; line-height: 1.1; }
+    .portrait-card p { margin: 0; color: #65493c; font-size: .98rem; }
+    .main-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 26px; padding: 0 0 42px; }
+    .card {
+      background: var(--card); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.6);
+      border-radius: var(--radius-xl); box-shadow: var(--shadow);
+    }
+    .details { padding: 30px; }
+    .section-title { font-family: Georgia, serif; font-size: 2rem; margin: 0 0 14px; line-height: 1.15; }
+    .lede { margin: 0 0 20px; color: var(--muted); font-size: 1.02rem; }
+    .bullets { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin: 0 0 26px; }
+    .bullet { padding: 16px; background: rgba(255,255,255,.64); border: 1px solid var(--line); border-radius: var(--radius-lg); }
+    .bullet-label { display: block; font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; color: #8d725f; margin-bottom: 6px; }
+    .bullet-value { display: block; font-size: 1rem; color: var(--text); font-weight: 600; }
+    .notes { padding: 24px; background: rgba(255,255,255,.55); border-radius: var(--radius-lg); border: 1px solid var(--line); }
+    .notes h3 { margin: 0 0 10px; font-size: 1rem; letter-spacing: .06em; text-transform: uppercase; color: #7e614d; }
+    .notes ul { margin: 0; padding-left: 18px; color: var(--muted); }
+    .notes li + li { margin-top: 8px; }
+    .booking { padding: 28px; display: grid; gap: 24px; }
+    .booking h2 { margin: 0 0 6px; font-family: Georgia, serif; font-size: 2rem; line-height: 1.1; }
+    .booking .sub { margin: 0; color: var(--muted); }
+    .calendar-shell { border: 1px solid var(--line); border-radius: 22px; padding: 20px; background: rgba(255,255,255,.66); }
+    .calendar-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+    .month-title { font-weight: 700; font-size: 1.08rem; }
+    .nav-btn {
+      border: 1px solid var(--line); background: white; color: var(--text); width: 40px; height: 40px;
+      border-radius: 999px; cursor: pointer; font-size: 1.1rem; transition: .18s ease;
+    }
+    .nav-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.08); }
+    .dow, .days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+    .dow div { text-align: center; font-size: .77rem; text-transform: uppercase; letter-spacing: .08em; color: #8b7363; padding-bottom: 8px; }
+    .day {
+      aspect-ratio: 1 / 1; border-radius: 16px; border: 1px solid transparent; background: rgba(255,255,255,.78);
+      cursor: pointer; font-size: .98rem; color: var(--text); transition: .18s ease;
+    }
+    .day:hover:not(.disabled):not(.empty) { transform: translateY(-1px); border-color: #d9c1b1; }
+    .day.disabled, .day.empty { cursor: default; opacity: .45; background: rgba(255,255,255,.4); }
+    .day.selected { background: linear-gradient(180deg, var(--accent), #7d4128); color: white; box-shadow: 0 16px 32px rgba(154,79,49,.28); }
+    .day.today { border-color: rgba(154,79,49,.38); }
+    .slot-wrap { display: grid; gap: 12px; }
+    .slot-title { font-size: .95rem; font-weight: 700; color: #6f5648; letter-spacing: .03em; }
+    .slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(108px, 1fr)); gap: 10px; }
+    .slot {
+      border: 1px solid var(--line); background: white; color: var(--text); border-radius: 14px;
+      padding: 12px 14px; cursor: pointer; font-weight: 600; transition: .18s ease;
+    }
+    .slot:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
+    .slot.selected { background: linear-gradient(180deg, #b86744, var(--accent)); color: white; border-color: transparent; }
+    .booking-form { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: .9rem; color: #6f5648; font-weight: 700; }
+    input, select, textarea {
+      width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 14px 15px;
+      background: rgba(255,255,255,.95); color: var(--text); font: inherit; outline: none; transition: .18s ease;
+    }
+    input:focus, select:focus, textarea:focus { border-color: rgba(154,79,49,.45); box-shadow: 0 0 0 4px rgba(154,79,49,.09); }
+    textarea { min-height: 120px; resize: vertical; }
+    .selection-box {
+      font-size: .95rem; color: #6f5648; background: #fff; border: 1px solid var(--line);
+      border-radius: 16px; padding: 12px 14px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    }
+    .checkline { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; color: var(--muted); }
+    .checkline input { width: 18px; height: 18px; flex: 0 0 auto; margin-top: 3px; }
+    .submit-btn {
+      border: none; border-radius: 999px; padding: 16px 24px; background: linear-gradient(180deg, #b56644, var(--accent));
+      color: white; font: inherit; font-weight: 800; cursor: pointer; box-shadow: 0 18px 32px rgba(154,79,49,.28); transition: .18s ease;
+    }
+    .submit-btn:hover { transform: translateY(-1px); }
+    .footnote { color: #7c6254; font-size: .88rem; margin-top: -6px; }
+    .success-note {
+      display: none; padding: 14px 16px; border-radius: 16px; background: rgba(59,122,87,.12);
+      color: var(--success); border: 1px solid rgba(59,122,87,.24); font-weight: 600;
+    }
+    .footer { text-align: center; color: #7d6657; font-size: .88rem; padding: 0 0 28px; }
+    @media (max-width: 980px) {
+      .hero, .main-grid { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .hero-side { padding-top: 0; }
+      .portrait-card { width: min(100%, 560px); aspect-ratio: 16/9; }
+    }
+    @media (max-width: 720px) {
+      .hero-copy { padding: 34px 24px; }
+      .details, .booking { padding: 22px; }
+      .bullets, .booking-form { grid-template-columns: 1fr; }
+      .container { width: min(100% - 20px, 1180px); }
+      .hero-wrap { padding-top: 14px; }
+    }
+  </style>
 </head>
 <body>
-    <div>
-        <h1 id="typing"></h1><span id="cursor" class="cursor hidden">|</span>
+  <div class="hero-wrap">
+    <div class="container">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Private Japanese Tour • Porvoo</span>
+          <h1>Book a local walk through Porvoo.</h1>
+          <p>Discover Porvoo with a local guide in Japanese. This private walking experience is inspired by the calm, elegant booking style of the Walk &amp; Wander page, with a story-first tour description and a clear booking form.</p>
+          <div class="hero-facts">
+            <span class="fact-pill">Approx. 1 hour</span>
+            <span class="fact-pill">Japanese guidance</span>
+            <span class="fact-pill">Private booking</span>
+            <span class="fact-pill">Email notification</span>
+          </div>
+        </div>
+        <div class="hero-side">
+          <div class="portrait-card">
+            <div class="portrait-top">
+              <span class="mini-label">Local stories &amp; hidden corners</span>
+              <h2>Porvoo in Japanese</h2>
+              <p>A warm, personal tour page with an integrated booking calendar and email notification workflow.</p>
+            </div>
+            <div class="scene" aria-hidden="true">
+              <div class="shore"></div><div class="shore2"></div><div class="house"></div><div class="roof"></div><div class="house2"></div><div class="roof2"></div><div class="house3"></div><div class="church"></div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
+  </div>
 
-    <div id="boxes" class="box-container">
-        <div class="box">
-            <img src="https://i.ytimg.com/vi/tp2cNl7Ndnk/hqdefault.jpg?sqp=-oaymwEmCKgBEF5IWvKriqkDGQgBFQAAiEIYAdgBAeIBCggYEAIYBjgBQAE=\u0026rs=AOn4CLAfHuRZWKj4d-zHS2wZxy3ykkP9Ow" alt="Kuva">
-            <div class="title">この味をすっかり忘れていました</div>
-            <div class="content">
-                <p></p>
-            </div>
-            <div class="expanded-description hidden">
-                <p>18.04.2025</p>
-                <h1>今日は久しぶりにミートローフ（jauhelihamureke）を作ってみました！</h1>
-                <p>フィンランドではよく食べられている家庭料理の一つで、子どもの頃から慣れ親しんだ味です。</p>
-                    
-                    <p>玉ねぎをたっぷり入れて、ジューシーに仕上げるのがポイント。
-                    付け合わせにはもちろん、じゃがいも。フィンランドでは毎日のように食べる主食みたいな存在です。</p>
-                    
-                    <p>シンプルだけど、なんだかホッとする味。日本にいても、たまにこういう料理を作ると、少しだけ故郷に帰ったような気持ちになります。</p>
-                    <p>動画のリンク: <a href="https://youtu.be/tp2cNl7Ndnk">この動画見てください！</a></p>
-                    <p>レシピ: <a href=https://www.meillakotona.fi/reseptit/perinteinen-lihamureke>こちら！</a></p>
-                    <a href="https://www.instagram.com/maakasufi/">Instagram</a>
-                    <a href="https://x.com/maakasufi">Twitter</a>
-                
-                </p>
-            </div>
+  <main class="container main-grid">
+    <section class="card details">
+      <h2 class="section-title">A guided stroll through stories and streets</h2>
+      <p class="lede">This template follows the same overall content pattern as the inspiration page: a storytelling introduction, practical tour details, booking form fields like name, email, telephone, date, time, participant count, and a note/terms section.</p>
+      <div class="bullets">
+        <div class="bullet"><span class="bullet-label">Duration</span><span class="bullet-value">Approx. 1 hour</span></div>
+        <div class="bullet"><span class="bullet-label">Language</span><span class="bullet-value">Japanese</span></div>
+        <div class="bullet"><span class="bullet-label">Starting point</span><span class="bullet-value">Old Town Hall / by agreement</span></div>
+        <div class="bullet"><span class="bullet-label">Booking notice</span><span class="bullet-value">Email notification sent to you</span></div>
+      </div>
+      <div class="notes">
+        <h3>Good to know</h3>
+        <ul>
+          <li>Old Porvoo has cobblestone streets, so comfortable shoes are recommended.</li>
+          <li>This page now offers weekday evening slots from 17:00 to 19:00, and weekend slots at 08:00, 10:00, 12:00, 14:00, 16:00, and 18:00.</li>
+          <li>The booking form is wired to send submissions to your Gmail via FormSubmit after you activate the form once.</li>
+          <li>If you want real shared availability sync or automatic blocking of booked slots, add a backend or calendar integration later.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card booking">
+      <div>
+        <h2>Start your journey here</h2>
+        <p class="sub">Choose a date from the calendar, pick a time, and send the booking request.</p>
+      </div>
+      <div class="calendar-shell">
+        <div class="calendar-head">
+          <button class="nav-btn" id="prevMonth" type="button" aria-label="Previous month">‹</button>
+          <div class="month-title" id="monthTitle">Month Year</div>
+          <button class="nav-btn" id="nextMonth" type="button" aria-label="Next month">›</button>
         </div>
-
-        <div class="box">
-            <img src="https://i.ytimg.com/vi/GzyhM9vkj-Q/hqdefault.jpg?sqp=-oaymwEmCKgBEF5IWvKriqkDGQgBFQAAiEIYAdgBAeIBCggYEAIYBjgBQAE=\u0026rs=AOn4CLAs36zMw9J6EyWGPy5Ez9BOPG2kDA" alt="Kuva">
-            <div class="title">「お知らせ！最後まで見て」言語によってどうして性格が変わるの？
-            </div>
-            <div class="content">
-                <p>変なことについて話します</p>
-            </div>
-            <div class="expanded-description hidden">
-                <p>18.04.2025</p>
-                <h1>言語によって性格が変わる？私の中の三人の「私</h1>
-                <p>最近、「自分の性格って、話す言語によってちょっと変わるかもしれない」と感じることがあります。
-                    私はフィンランド語、日本語、英語を話しますが、それぞれの言語で話すとき、自分の話し方や雰囲気が少しずつ違うんです。</p>
-                    <h1>フィンランド語：ストレートでちょっと皮肉っぽい</h1>
-                
-                <p>フィンランド語を話しているときの私は、とても自然体で、ストレートに物事を言います。時々ちょっと皮肉っぽくなったりもしますが、それが普通なんです。沈黙も気まずくないし、無理に話す必要もありません。
-
-                    例えば、友達に「元気？」と聞かれたら、
-                    「まあ、生きてるよ。特に何も。月曜はやっぱ月曜だね。」みたいに答える感じ。</p>
-                    <h1>日本語：丁寧で控えめ、ちょっと遠慮がち？</h1>
-                
-                <p>日本語を話すときは、自然と敬語を使ったり、相手に合わせたりするようになります。言葉の選び方もすごく気にしますし、あまり自分の意見を強く言いすぎないようにしているかも。
-
-                    例えば、言いたいことがあっても、
-                    「えっと、すみません、ちょっとだけ気になったんですけど…」って、前置きが長くなる。
-                    フィンランド語なら一言で済むのに（笑）。</p>
-                    <h1>英語：フレンドリーで少し外向的？</h1>
-                    
-                    <p>英語を話すときの私は、ちょっと明るめで、オープンな感じになります。英語圏の文化の影響か、表情やジェスチャーも増えるし、会話もテンポが早くなります。自分でも「なんでこんなに笑ってるんだろう？」って思うことも。
-
-                        言葉ってただのツールじゃなくて、その言語にある文化や考え方までも自然と取り込んでしまうものだな、と実感します。</p>
-                    <p>みなさんも、話す言語によって「自分」がちょっと変わると感じたこと、ありますか？
-                        それとも、どんな言語でも「自分は自分」でしょうか？</p>
-                        <p>動画のリンク: <a href="https://youtu.be/GzyhM9vkj-Q?si=HBosJd2IaB1zKP26">この動画見てください！</a></p>
-                        <a href="https://www.instagram.com/maakasufi/">Instagram</a>
-                        <a href="https://x.com/maakasufi">Twitter</a>
-            </div>
+        <div class="dow"><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div></div>
+        <div class="days" id="calendarDays"></div>
+      </div>
+      <div class="slot-wrap">
+        <div class="slot-title">Available start times</div>
+        <div class="slots" id="timeSlots"></div>
+        <div class="selection-box">
+          <span><strong>Selected date:</strong> <span id="selectedDateText">Choose a date</span></span>
+          <span><strong>Selected time:</strong> <span id="selectedTimeText">Choose a time</span></span>
         </div>
-        
-        <!-- Lisätyt uudet laatikot -->
-        <div class="box">
-            <img src="https://i.ytimg.com/vi/rZyxH_GKBMo/hqdefault.jpg" alt="Kuva">
-            <div class="title">カルチャーショック</div>
-            <div class="content">
-                <p>日本で受けたカルチャーショックについて話します</p>
-            </div>
-            <div class="expanded-description hidden">
-                <p>14.04.2025</p>
-                <h1>🇯🇵【日本は微妙？】1年間住んで感じたカルチャーショック</h1>
-                <p>こんにちは、フィンランドからやってきたマーカスです。
-                    気づけば日本に来てからもう1年。最初はすべてが新鮮で、まるでアニメの世界に入り込んだような気分でした。でも、住んでみると「うーん…これはちょっと微妙かも？」と思うことも増えてきました。</p>
-                <p>今回は、日本に住みながら実際に感じたカルチャーショックを正直に語ってみようと思います。日本大好きな人から怒られるかもしれないけど…これはあくまで、フィンランド人の一意見として読んでください🙏</p>
-                <h1>① 日本人、謝りすぎでは…？</h1>
-                <p>「すみません」って、魔法の言葉なんでしょうか？
-                    コンビニでも、電車でも、エレベーターでも、とにかく謝る人が多い！フィンランドでは、悪いことをしたときにだけ謝るので、最初はちょっと戸惑いました。むしろ、「そんなに悪くないのに、なんでそんなに低姿勢なの！？」とこっちが心配になるレベル。</p>
-                <h1>② ラッシュアワー＝毎朝の人間テトリス</h1>
-                <p>東京の朝の通勤ラッシュ…これはもう文化じゃなくてスポーツ。
-                    フィンランドではバスも電車も空いていて、座れるのが当たり前。でも日本では、毎朝ぎゅうぎゅうの満員電車。顔が他人のリュックにめり込むレベルです。
-                    1年経っても、正直まだ慣れません。</p>
-                <h1>③ 街の液晶画面、多くない？</h1>
-                <p>渋谷、新宿、秋葉原…。どこを歩いても巨大な液晶画面が目に飛び込んでくる！CM、アニメ、ニュース、ライブ映像…情報量が多すぎて、脳がパンクしそうです。
-                    夜はちょっと近未来っぽくてかっこいいけど、田舎育ちの自分には刺激が強すぎました（笑）</p>
-                <h1>④ ゴミ箱…どこ？？</h1>
-                <p>本当に不思議。こんなに清潔な国なのに、道にゴミ箱が全然ない！
-                    コンビニで買い食いしたあと、ゴミをどこに捨てたらいいのか分からなくて、ポケットにずっと持ち歩くはめに。
-                    フィンランドではどこにでもゴミ箱があるので、これは今でも謎文化です。</p>
-                <h1>⑤ 静かすぎる街</h1>
-                <p>これは良い意味でもあるけど、日本の街って本当に静か。
-フィンランドも静かな国だけど、日本の電車やレストランでは、みんな声を潜めていて、最初は「誰か怒ってるのかな？」って感じるほどでした。
-今では少し慣れたけど、最初のうちは空気が重く感じたことも…。</p>
-<p>動画のリンク: <a href="https://youtu.be/rZyxH_GKBMo?si=9l-3MNo40zblsqzG">この動画見てください！</a></p>
-<a href="https://www.instagram.com/maakasufi/">Instagram</a>
-<a href="https://x.com/maakasufi">Twitter</a>
-                
-            </div>
-        </div>
-        <!-- Lisää tarvittaessa lisää laatikkoja -->
-        <div class="box">
-            <img src="https://cdn.pixabay.com/photo/2017/02/13/01/26/the-question-mark-2061539_1280.png" alt="Kuva">
-            <div class="title">編集中</div>
-            <div class="content">
-                <p>アイデアを考える中</p>
-            </div>
-            <div class="expanded-description hidden">
-                <p>18.04.2025</p>
-                <p>アイデアを考える中</p>
-            </div>
-        </div>
+      </div>
+      <div class="success-note" id="localSuccess">Ready to submit. After the first live submission, confirm the activation email FormSubmit sends to your Gmail once.</div>
 
-        <div class="box">
-            <img src="https://cdn.pixabay.com/photo/2017/02/13/01/26/the-question-mark-2061539_1280.png" alt="Kuva">
-            <div class="title">編集中</div>
-            <div class="content">
-                <p>アイデアを考える中</p>
-            </div>
-            <div class="expanded-description hidden">
-                <p>18.04.2025</p>
-                <p>アイデアを考える中</p>
-            </div>
+      <form class="booking-form" id="bookingForm" action="https://formsubmit.co/markuslamminen97@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Porvoo Japanese Tour Booking" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="Tour" value="Private Japanese Tour in Porvoo" />
+        <input type="hidden" name="Selected Date" id="hiddenDate" value="" />
+        <input type="hidden" name="Selected Time" id="hiddenTime" value="" />
+        <input type="hidden" name="Start Point" value="Old Town Hall / by agreement" />
+        <div class="field"><label for="name">Your Name</label><input id="name" name="Name" type="text" placeholder="Your name" required /></div>
+        <div class="field"><label for="email">Your Email</label><input id="email" name="Email" type="email" placeholder="you@example.com" required /></div>
+        <div class="field"><label for="phone">Your Telephone</label><input id="phone" name="Telephone" type="tel" placeholder="+358 ..." required /></div>
+        <div class="field">
+          <label for="participants">Number of Participants</label>
+          <select id="participants" name="Participants" required>
+            <option value="">Select</option>
+            <option>1 person</option><option>2 people</option><option>3 people</option><option>4 people</option><option>5+ people</option>
+          </select>
         </div>
+        <div class="field full"><label for="notes">Additional Notes (optional)</label><textarea id="notes" name="Additional Notes" placeholder="Tell me about your interests, preferred meeting point, or any custom requests."></textarea></div>
+        <div class="field full">
+          <label class="checkline" for="terms"><input id="terms" name="Accepted Terms" type="checkbox" value="Yes" required />
+            <span>I confirm that I have read and accepted the booking terms and understand this is a booking request.</span>
+          </label>
+        </div>
+        <div class="field full">
+          <button class="submit-btn" type="submit">Request booking</button>
+          <div class="footnote">Tip: deploy this file to your real website URL before testing. FormSubmit sends a one-time confirmation email to activate the form the first time it is submitted.</div>
+        </div>
+      </form>
+    </section>
+  </main>
 
-    </div>
+  <div class="container footer">contact: markuslamminen97@gmail</div>
 
-    <div id="signature">@maakasu</div> <!-- Teksti vasemmassa alakulmassa -->
-    <script>
-        
-        const teksti = "@マーカスのチャンネルへようこそ🙂";
-        let i = 0;
-        const kirjoitus = document.getElementById("typing");
-        const kursori = document.getElementById("cursor");
-        const laatikot = document.getElementById("boxes");
-    
-        function kirjoitaKirjainKerrallaan() {
-            if (i < teksti.length) {
-                kirjoitus.textContent += teksti.charAt(i);
-                i++;
-                setTimeout(kirjoitaKirjainKerrallaan, 100);
-            } else {
-                kursori.classList.remove("hidden");
-                setTimeout(function() {
-                    laatikot.classList.add("visible");
-                    laatikot.style.opacity = 1;
-                }, 2000);
-            }
+  <script>
+    const monthTitle = document.getElementById('monthTitle');
+    const calendarDays = document.getElementById('calendarDays');
+    const timeSlotsEl = document.getElementById('timeSlots');
+    const selectedDateText = document.getElementById('selectedDateText');
+    const selectedTimeText = document.getElementById('selectedTimeText');
+    const hiddenDate = document.getElementById('hiddenDate');
+    const hiddenTime = document.getElementById('hiddenTime');
+    const localSuccess = document.getElementById('localSuccess');
+
+    const weekdaySlots = {
+      1: ['17:00', '19:00'],
+      2: ['17:00', '19:00'],
+      3: ['17:00', '19:00'],
+      4: ['17:00', '19:00'],
+      5: ['17:00', '19:00'],
+      6: ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00'],
+      0: ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00']
+    };
+
+    let viewDate = new Date();
+    viewDate.setDate(1);
+    let selectedDate = null;
+    let selectedTime = '';
+    const today = new Date();
+    today.setHours(0,0,0,0);
+
+    function formatDisplayDate(date) {
+      return new Intl.DateTimeFormat('en-GB', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+    }
+    function formatISODate(date) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, '0');
+      const d = String(date.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;
+    }
+    function getMondayFirstOffset(jsDay) { return (jsDay + 6) % 7; }
+
+    function renderCalendar() {
+      calendarDays.innerHTML = '';
+      const year = viewDate.getFullYear();
+      const month = viewDate.getMonth();
+      monthTitle.textContent = new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' }).format(viewDate);
+      const firstDay = new Date(year, month, 1);
+      const offset = getMondayFirstOffset(firstDay.getDay());
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      for (let i = 0; i < offset; i++) {
+        const filler = document.createElement('button');
+        filler.className = 'day empty'; filler.type = 'button'; filler.disabled = true; calendarDays.appendChild(filler);
+      }
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(year, month, day);
+        date.setHours(0,0,0,0);
+        const btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'day'; btn.textContent = day;
+        const isPast = date < today;
+        const isToday = date.getTime() === today.getTime();
+        const isSelected = selectedDate && date.getTime() === selectedDate.getTime();
+        if (isPast) btn.classList.add('disabled');
+        if (isToday) btn.classList.add('today');
+        if (isSelected) btn.classList.add('selected');
+        btn.disabled = isPast;
+        if (!isPast) {
+          btn.addEventListener('click', () => {
+            selectedDate = date; selectedTime = ''; updateSelection(); renderCalendar(); renderSlots();
+          });
         }
-    
-        kirjoitaKirjainKerrallaan();
-    
-        // Klikattavan laatikon toiminnallisuus
-        const boxes = document.querySelectorAll('.box');
+        calendarDays.appendChild(btn);
+      }
+    }
 
-        boxes.forEach(box => {
-            box.addEventListener('click', function(e) {
-                // Estä klikkauksen leviäminen
-                e.stopPropagation();
-                
-                // Jos laatikko on jo avattu, älä tee mitään
-                if (box.classList.contains('expanded')) return;
-                
-                // Sulje kaikki muut avoimet laatikot ensin
-                document.querySelectorAll('.box.expanded').forEach(b => {
-                    closeBox(b);
-                });
-                
-                // Avaa klikattu laatikko
-                openBox(box);
-            });
-        });
-        
-        // Sulje laatikko klikkaamalla sen ulkopuolelle
-        document.addEventListener('click', function() {
-            document.querySelectorAll('.box.expanded').forEach(box => {
-                closeBox(box);
-            });
-        });
-        
-        function openBox(box) {
-            box.classList.add('expanded');
-            const expandedText = box.querySelector('.expanded-description');
-            if (expandedText) expandedText.classList.remove('hidden');
-            
-            // Aloitusanimaatio
-            box.style.transform = 'translate(-50%, -50%) scale(0.5)';
-            box.style.opacity = '0';
-            
-            // Pakotetaan uudelleenrenderöinti
-            void box.offsetWidth;
-            
-            // Animaatio auki
-            box.style.transform = 'translate(-50%, -50%) scale(1)';
-            box.style.opacity = '1';
-        }
-        
-        function closeBox(box) {
-            if (!box.classList.contains('expanded')) return;
-            
-            // Lisää sulkemisluokka
-            box.classList.add('closing');
-            
-            // Odota animaation loppumista
-            setTimeout(() => {
-                box.classList.remove('expanded', 'closing');
-                const expandedText = box.querySelector('.expanded-description');
-                if (expandedText) expandedText.classList.add('hidden');
-                
-                // Nollaa animaatiot
-                box.style.transform = '';
-                box.style.opacity = '';
-            }, 500); // Vastaa transition-aikaa
-        }
-    </script>
+    function renderSlots() {
+      timeSlotsEl.innerHTML = '';
+      if (!selectedDate) {
+        const info = document.createElement('div'); info.className = 'footnote'; info.textContent = 'Pick a date first to see available times.'; timeSlotsEl.appendChild(info); return;
+      }
+      const slots = weekdaySlots[selectedDate.getDay()] || [];
+      if (!slots.length) {
+        const info = document.createElement('div'); info.className = 'footnote'; info.textContent = 'No slots available on this day.'; timeSlotsEl.appendChild(info); return;
+      }
+      slots.forEach(slot => {
+        const btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'slot' + (selectedTime === slot ? ' selected' : ''); btn.textContent = slot;
+        btn.addEventListener('click', () => { selectedTime = slot; updateSelection(); renderSlots(); });
+        timeSlotsEl.appendChild(btn);
+      });
+    }
 
-    <div class="cursor-ball" id="cursorBall"></div>
+    function updateSelection() {
+      selectedDateText.textContent = selectedDate ? formatDisplayDate(selectedDate) : 'Choose a date';
+      selectedTimeText.textContent = selectedTime || 'Choose a time';
+      hiddenDate.value = selectedDate ? formatISODate(selectedDate) : '';
+      hiddenTime.value = selectedTime || '';
+      localSuccess.style.display = (selectedDate && selectedTime) ? 'block' : 'none';
+    }
 
-    <script>
-        const cursorBall = document.getElementById('cursorBall');
-        let mouseX = 0;
-        let mouseY = 0;
-        let currentX = 0;
-        let currentY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function animate() {
-            currentX += (mouseX - currentX) * 0.1;
-            currentY += (mouseY - currentY) * 0.1;
-            cursorBall.style.transform = translate(${currentX}px, ${currentY}px);
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-    </script>
+    document.getElementById('prevMonth').addEventListener('click', () => { viewDate.setMonth(viewDate.getMonth() - 1); renderCalendar(); });
+    document.getElementById('nextMonth').addEventListener('click', () => { viewDate.setMonth(viewDate.getMonth() + 1); renderCalendar(); });
+    document.getElementById('bookingForm').addEventListener('submit', (e) => {
+      if (!selectedDate || !selectedTime) {
+        e.preventDefault();
+        alert('Please select a date and time before sending the booking request.');
+      }
+    });
+    updateSelection(); renderCalendar(); renderSlots();
+  </script>
 </body>
 </html>
