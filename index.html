@@ -39,6 +39,7 @@
       margin: 0 auto;
     }
 
+    /* ===== HERO ===== */
     .hero-wrap {
       padding: 34px 0 28px;
     }
@@ -66,6 +67,7 @@
         radial-gradient(circle at 74% 0%, rgba(255,255,255,.12), transparent 18%),
         linear-gradient(to bottom, rgba(255,255,255,.05), rgba(0,0,0,.18));
       pointer-events: none;
+      z-index: 0;
     }
 
     .hero-copy {
@@ -121,151 +123,40 @@
       font-size: .96rem;
     }
 
+    /* ===== HERO SIDE — now a photo ===== */
     .hero-side {
       position: relative;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-    }
-
-    .portrait-card {
-      width: min(100%, 380px);
-      aspect-ratio: 4 / 5;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(248,231,214,.96), rgba(236,211,191,.88));
-      border: 1px solid rgba(255,255,255,.35);
-      box-shadow: 0 24px 60px rgba(33, 19, 14, .18);
-      position: relative;
       overflow: hidden;
-      padding: 28px;
-      color: #3c251b;
+      z-index: 1;
+      /* subtle inner edge so photo blends into the hero gradient */
+      --edge-fade: rgba(44,31,24,.55);
     }
 
-    .portrait-card:before {
-      content: "Porvoo";
+    .hero-side img {
       position: absolute;
-      top: 18px;
-      right: -8px;
-      font-family: Georgia, serif;
-      font-size: 5.8rem;
-      line-height: 1;
-      color: rgba(122, 70, 44, .07);
-      transform: rotate(-6deg);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      /* gentle fade on left edge to blend with dark hero gradient */
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 12%, black 32%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 12%, black 32%);
+    }
+
+    /* optional subtle vignette overlay */
+    .hero-side::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(44,31,24,.4) 0%, transparent 40%),
+        linear-gradient(to left, transparent 60%, rgba(44,31,24,.18) 100%);
       pointer-events: none;
     }
 
-    .scene {
-      position: absolute;
-      inset: auto 18px 18px 18px;
-      height: 42%;
-      border-radius: 22px;
-      background: linear-gradient(180deg, #d9e5ef 0%, #d7e7f1 44%, #7da2bd 45%, #55738d 100%);
-      overflow: hidden;
-    }
-
-    .shore, .shore2, .roof, .roof2, .house, .house2, .house3, .church {
-      position: absolute;
-    }
-
-    .shore {
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 40%;
-      background: linear-gradient(180deg, #866451, #7c5543);
-    }
-
-    .shore2 {
-      left: 0;
-      right: 0;
-      bottom: 30%;
-      height: 8px;
-      background: rgba(255,255,255,.35);
-    }
-
-    .house {
-      width: 90px;
-      height: 74px;
-      left: 28px;
-      bottom: 34%;
-      background: #b2412a;
-    }
-
-    .roof {
-      width: 98px;
-      height: 18px;
-      left: 24px;
-      bottom: calc(34% + 74px);
-      background: #4b2e25;
-      transform: skew(-22deg);
-    }
-
-    .house2 {
-      width: 82px;
-      height: 62px;
-      left: 120px;
-      bottom: 34%;
-      background: #a63b28;
-    }
-
-    .roof2 {
-      width: 88px;
-      height: 16px;
-      left: 116px;
-      bottom: calc(34% + 62px);
-      background: #41261e;
-      transform: skew(-20deg);
-    }
-
-    .house3 {
-      width: 70px;
-      height: 54px;
-      left: 200px;
-      bottom: 34%;
-      background: #be5538;
-    }
-
-    .church {
-      width: 0;
-      height: 0;
-      right: 24px;
-      bottom: 34%;
-      border-left: 28px solid transparent;
-      border-right: 28px solid transparent;
-      border-bottom: 120px solid #efeee9;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,.12));
-    }
-
-    .portrait-top {
-      position: relative;
-      z-index: 2;
-      max-width: 230px;
-    }
-
-    .mini-label {
-      display: inline-block;
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: #8d5d48;
-      margin-bottom: 14px;
-    }
-
-    .portrait-card h2 {
-      font-family: Georgia, serif;
-      margin: 0 0 10px;
-      font-size: 1.9rem;
-      line-height: 1.1;
-    }
-
-    .portrait-card p {
-      margin: 0;
-      color: #65493c;
-      font-size: .98rem;
-    }
-
     /* ===== INTRO SECTION ===== */
-
     .intro-wrap {
       padding: 0 0 28px;
     }
@@ -302,13 +193,8 @@
       box-shadow: 0 16px 38px rgba(69, 39, 24, 0.10);
     }
 
-    .intro-photo.large {
-      min-height: 380px;
-    }
-
-    .intro-photo.small {
-      min-height: 220px;
-    }
+    .intro-photo.large { min-height: 380px; }
+    .intro-photo.small { min-height: 220px; }
 
     .intro-photo img {
       position: absolute;
@@ -400,6 +286,7 @@
       font-size: .98rem;
     }
 
+    /* ===== MAIN GRID ===== */
     .main-grid {
       display: grid;
       grid-template-columns: 1.05fr .95fr;
@@ -415,9 +302,7 @@
       box-shadow: var(--shadow);
     }
 
-    .details {
-      padding: 30px;
-    }
+    .details { padding: 30px; }
 
     .section-title {
       font-family: Georgia, serif;
@@ -483,10 +368,9 @@
       color: var(--muted);
     }
 
-    .notes li + li {
-      margin-top: 8px;
-    }
+    .notes li + li { margin-top: 8px; }
 
+    /* ===== BOOKING ===== */
     .booking {
       padding: 28px;
       display: grid;
@@ -535,6 +419,7 @@
       cursor: pointer;
       font-size: 1.1rem;
       transition: .18s ease;
+      flex-shrink: 0;
     }
 
     .nav-btn:hover {
@@ -545,25 +430,25 @@
     .dow, .days {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 8px;
+      gap: 4px;
     }
 
     .dow div {
       text-align: center;
-      font-size: .77rem;
+      font-size: .72rem;
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: .06em;
       color: #8b7363;
       padding-bottom: 8px;
     }
 
     .day {
       aspect-ratio: 1 / 1;
-      border-radius: 16px;
+      border-radius: 12px;
       border: 1px solid transparent;
       background: rgba(255,255,255,.78);
       cursor: pointer;
-      font-size: .98rem;
+      font-size: .9rem;
       color: var(--text);
       transition: .18s ease;
     }
@@ -586,14 +471,9 @@
       box-shadow: 0 16px 32px rgba(154,79,49,.28);
     }
 
-    .day.today {
-      border-color: rgba(154,79,49,.38);
-    }
+    .day.today { border-color: rgba(154,79,49,.38); }
 
-    .slot-wrap {
-      display: grid;
-      gap: 12px;
-    }
+    .slot-wrap { display: grid; gap: 12px; }
 
     .slot-title {
       font-size: .95rem;
@@ -604,8 +484,8 @@
 
     .slots {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 8px;
     }
 
     .slot {
@@ -613,9 +493,10 @@
       background: white;
       color: var(--text);
       border-radius: 14px;
-      padding: 12px 14px;
+      padding: 10px 12px;
       cursor: pointer;
       font-weight: 600;
+      font-size: .9rem;
       transition: .18s ease;
     }
 
@@ -636,14 +517,8 @@
       gap: 14px;
     }
 
-    .field {
-      display: grid;
-      gap: 8px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
+    .field { display: grid; gap: 8px; }
+    .field.full { grid-column: 1 / -1; }
 
     label {
       font-size: .9rem;
@@ -674,7 +549,7 @@
     }
 
     .selection-box {
-      font-size: .95rem;
+      font-size: .9rem;
       color: #6f5648;
       background: #fff;
       border: 1px solid var(--line);
@@ -682,7 +557,7 @@
       padding: 12px 14px;
       display: flex;
       justify-content: space-between;
-      gap: 16px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
@@ -712,11 +587,10 @@
       cursor: pointer;
       box-shadow: 0 18px 32px rgba(154,79,49,.28);
       transition: .18s ease;
+      width: 100%;
     }
 
-    .submit-btn:hover {
-      transform: translateY(-1px);
-    }
+    .submit-btn:hover { transform: translateY(-1px); }
 
     .footnote {
       color: #7c6254;
@@ -741,49 +615,64 @@
       padding: 0 0 28px;
     }
 
+    /* ===== RESPONSIVE ===== */
+
+    /* Tablet */
     @media (max-width: 980px) {
-      .hero,
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      /* On tablet/mobile the photo goes on top as a banner */
+      .hero-side {
+        order: -1;
+        height: 280px;
+      }
+
+      /* Reset mask — full width photo, fade bottom into hero */
+      .hero-side img {
+        object-position: center 30%;
+        mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+      }
+
+      .hero-side::after {
+        background: linear-gradient(to bottom, transparent 40%, rgba(44,31,24,.6) 100%);
+      }
+
       .main-grid,
       .intro-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-side {
-        padding-top: 0;
-      }
-
-      .portrait-card {
-        width: min(100%, 560px);
-        aspect-ratio: 16/9;
-      }
-
       .intro-images {
         min-height: auto;
+        grid-template-rows: auto auto;
       }
 
-      .intro-photo.large {
-        min-height: 320px;
-      }
-
-      .intro-photo.small {
-        min-height: 220px;
-      }
+      .intro-photo.large { min-height: 320px; }
+      .intro-photo.small { min-height: 220px; }
     }
 
+    /* Mobile */
     @media (max-width: 720px) {
-      .hero-copy {
-        padding: 34px 24px;
-      }
+      .hero-wrap { padding-top: 14px; }
+
+      .hero-side { height: 220px; }
+
+      .hero-copy { padding: 28px 20px 32px; }
+
+      h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); max-width: none; }
+
+      .hero-copy p { font-size: .97rem; }
+
+      .fact-pill { font-size: .88rem; padding: 8px 12px; }
 
       .details,
-      .booking,
-      .intro-copy {
-        padding: 22px;
-      }
+      .booking { padding: 20px 16px; }
+
+      .intro-copy { padding: 20px 16px; }
 
       .bullets,
       .booking-form,
@@ -791,21 +680,32 @@
         grid-template-columns: 1fr;
       }
 
-      .container {
-        width: min(100% - 20px, 1180px);
-      }
+      .container { width: calc(100% - 24px); }
 
-      .hero-wrap {
-        padding-top: 14px;
-      }
+      .intro-images { gap: 12px; }
+      .intro-photo.large { min-height: 260px; }
+      .intro-photo.small { min-height: 180px; }
 
-      .intro-photo.large {
-        min-height: 280px;
-      }
+      /* Calendar: tighter on small screens */
+      .dow div { font-size: .65rem; }
+      .day { font-size: .82rem; border-radius: 10px; }
+      .calendar-shell { padding: 14px 12px; }
+      .dow, .days { gap: 3px; }
 
-      .intro-photo.small {
-        min-height: 200px;
-      }
+      /* Slots wrap nicely */
+      .slots { grid-template-columns: repeat(3, 1fr); }
+
+      .selection-box { flex-direction: column; gap: 6px; }
+
+      .booking h2 { font-size: 1.6rem; }
+      .section-title { font-size: 1.6rem; }
+    }
+
+    /* Very small phones */
+    @media (max-width: 380px) {
+      .slots { grid-template-columns: repeat(2, 1fr); }
+      .booking-form { grid-template-columns: 1fr; }
+      .field.full { grid-column: 1; }
     }
   </style>
 </head>
@@ -826,24 +726,7 @@
         </div>
 
         <div class="hero-side">
-          <div class="portrait-card">
-            <div class="portrait-top">
-              <span class="mini-label">旧ポルヴォー市</span>
-              <h2>ポルヴォー</h2>
-              <p>フィンランドで一番綺麗で有名な街です。数え切れないほど可愛い雑貨屋やカフェがありますのでのんびりに時間を過ごす場所です</p>
-            </div>
-
-            <div class="scene" aria-hidden="true">
-              <div class="shore"></div>
-              <div class="shore2"></div>
-              <div class="house"></div>
-              <div class="roof"></div>
-              <div class="house2"></div>
-              <div class="roof2"></div>
-              <div class="house3"></div>
-              <div class="church"></div>
-            </div>
-          </div>
+          <img src="image2.jpg" alt="Porvoo landscape" />
         </div>
       </section>
     </div>
@@ -937,7 +820,7 @@
         <ul>
           <li>ポルヴォー旧市街は石畳の道が続いているため、歩きやすい靴でお越しいただくことをおすすめします</li>
           <li>このツアーは副業でやっていますので予約時間が制限されています。平日の夕方は17:00〜19:00の間でご案内可能です。また、週末は08:00、10:00、12:00、14:00、16:00、18:00の各時間帯でご予約いただけます</li>
-          <li style="color:red; font-size:18px; font-weight:bold;">
+          <li style="color:red; font-size:16px; font-weight:bold;">
             現在は現金のみご利用いただけます。決済端末を購入する予定です
           </li>
         </ul>
@@ -1033,8 +916,6 @@
 
         <div class="field full">
           <button class="submit-btn" type="submit">予約します</button>
-          <div class="footnote">
-          </div>
         </div>
       </form>
     </section>
@@ -1073,10 +954,7 @@
 
     function formatDisplayDate(date) {
       return new Intl.DateTimeFormat('en-GB', {
-        weekday: 'short',
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
+        weekday: 'short', day: 'numeric', month: 'long', year: 'numeric'
       }).format(date);
     }
 
@@ -1093,13 +971,11 @@
 
     function renderCalendar() {
       calendarDays.innerHTML = '';
-
       const year = viewDate.getFullYear();
       const month = viewDate.getMonth();
 
       monthTitle.textContent = new Intl.DateTimeFormat('en-GB', {
-        month: 'long',
-        year: 'numeric'
+        month: 'long', year: 'numeric'
       }).format(viewDate);
 
       const firstDay = new Date(year, month, 1);
@@ -1130,7 +1006,6 @@
         if (isPast) btn.classList.add('disabled');
         if (isToday) btn.classList.add('today');
         if (isSelected) btn.classList.add('selected');
-
         btn.disabled = isPast;
 
         if (!isPast) {
@@ -1173,13 +1048,11 @@
         btn.type = 'button';
         btn.className = 'slot' + (selectedTime === slot ? ' selected' : '');
         btn.textContent = slot;
-
         btn.addEventListener('click', () => {
           selectedTime = slot;
           updateSelection();
           renderSlots();
         });
-
         timeSlotsEl.appendChild(btn);
       });
     }
