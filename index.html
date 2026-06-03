@@ -34,9 +34,14 @@
       line-height: 1.55;
     }
 
-    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-    .hero-wrap { padding: 34px 0 28px; }
+    .hero-wrap {
+      padding: 34px 0 28px;
+    }
 
     .hero {
       position: relative;
@@ -85,7 +90,7 @@
     }
 
     h1 {
-      font-family: Georgia, 'Times New Roman', serif;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(2.4rem, 5.4vw, 4.2rem);
       line-height: 1.04;
       margin: 18px 0 18px;
@@ -158,14 +163,68 @@
       overflow: hidden;
     }
 
-    .shore, .shore2, .roof, .roof2, .house, .house2, .house3, .church { position: absolute; }
-    .shore { left: 0; right: 0; bottom: 0; height: 40%; background: linear-gradient(180deg, #866451, #7c5543); }
-    .shore2 { left: 0; right: 0; bottom: 30%; height: 8px; background: rgba(255,255,255,.35); }
-    .house { width: 90px; height: 74px; left: 28px; bottom: 34%; background: #b2412a; }
-    .roof { width: 98px; height: 18px; left: 24px; bottom: calc(34% + 74px); background: #4b2e25; transform: skew(-22deg); }
-    .house2 { width: 82px; height: 62px; left: 120px; bottom: 34%; background: #a63b28; }
-    .roof2 { width: 88px; height: 16px; left: 116px; bottom: calc(34% + 62px); background: #41261e; transform: skew(-20deg); }
-    .house3 { width: 70px; height: 54px; left: 200px; bottom: 34%; background: #be5538; }
+    .shore, .shore2, .roof, .roof2, .house, .house2, .house3, .church {
+      position: absolute;
+    }
+
+    .shore {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 40%;
+      background: linear-gradient(180deg, #866451, #7c5543);
+    }
+
+    .shore2 {
+      left: 0;
+      right: 0;
+      bottom: 30%;
+      height: 8px;
+      background: rgba(255,255,255,.35);
+    }
+
+    .house {
+      width: 90px;
+      height: 74px;
+      left: 28px;
+      bottom: 34%;
+      background: #b2412a;
+    }
+
+    .roof {
+      width: 98px;
+      height: 18px;
+      left: 24px;
+      bottom: calc(34% + 74px);
+      background: #4b2e25;
+      transform: skew(-22deg);
+    }
+
+    .house2 {
+      width: 82px;
+      height: 62px;
+      left: 120px;
+      bottom: 34%;
+      background: #a63b28;
+    }
+
+    .roof2 {
+      width: 88px;
+      height: 16px;
+      left: 116px;
+      bottom: calc(34% + 62px);
+      background: #41261e;
+      transform: skew(-20deg);
+    }
+
+    .house3 {
+      width: 70px;
+      height: 54px;
+      left: 200px;
+      bottom: 34%;
+      background: #be5538;
+    }
+
     .church {
       width: 0;
       height: 0;
@@ -177,7 +236,12 @@
       filter: drop-shadow(0 10px 20px rgba(0,0,0,.12));
     }
 
-    .portrait-top { position: relative; z-index: 2; max-width: 230px; }
+    .portrait-top {
+      position: relative;
+      z-index: 2;
+      max-width: 230px;
+    }
+
     .mini-label {
       display: inline-block;
       font-size: .78rem;
@@ -200,14 +264,14 @@
       font-size: .98rem;
     }
 
-    /* ===== NEW INTRO SECTION ===== */
+    /* ===== INTRO SECTION ===== */
     .intro-wrap {
       padding: 0 0 28px;
     }
 
     .intro-grid {
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: 1.02fr .98fr;
       gap: 26px;
       align-items: stretch;
     }
@@ -223,9 +287,8 @@
 
     .intro-images {
       display: grid;
-      grid-template-rows: 1.3fr .85fr;
+      grid-template-rows: 1.24fr .84fr;
       gap: 16px;
-      height: 100%;
       min-height: 620px;
     }
 
@@ -233,63 +296,75 @@
       position: relative;
       overflow: hidden;
       border-radius: 24px;
-      min-height: 240px;
-      box-shadow: 0 16px 38px rgba(69, 39, 24, 0.10);
       border: 1px solid rgba(255,255,255,.65);
       background: #e8ddd4;
-    }
-
-    .intro-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transform: scale(1.01);
+      box-shadow: 0 16px 38px rgba(69, 39, 24, 0.10);
+      isolation: isolate;
     }
 
     .intro-photo.large {
       min-height: 380px;
     }
 
+    .intro-photo.small {
+      min-height: 220px;
+    }
+
+    .intro-photo > img.base-photo,
+    .intro-photo > img.blur-clone {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .intro-photo > img.base-photo {
+      z-index: 1;
+      transform: scale(1.01);
+    }
+
+    /* reliable blur layer */
+    .intro-photo.small > img.blur-clone {
+      z-index: 2;
+      transform: scale(1.03);
+      filter: blur(18px) brightness(1.04);
+      pointer-events: none;
+      opacity: 0.98;
+      clip-path: ellipse(12.5% 24% at 35.5% 54%);
+      -webkit-clip-path: ellipse(12.5% 24% at 35.5% 54%);
+    }
+
+    /* soft fog glow on top of blur */
+    .intro-photo.small::after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      left: 23%;
+      top: 30%;
+      width: 25%;
+      height: 48%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.14) 0%, rgba(255,255,255,.08) 58%, rgba(255,255,255,0) 100%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
     .photo-badge {
       position: absolute;
       left: 16px;
       bottom: 16px;
-      z-index: 2;
-      background: rgba(255,255,255,.82);
+      z-index: 3;
+      background: rgba(255,255,255,.86);
       color: #5a3d2f;
       padding: 9px 14px;
       border-radius: 999px;
       font-size: .86rem;
       font-weight: 700;
-      border: 1px solid rgba(255,255,255,.85);
+      border: 1px solid rgba(255,255,255,.92);
       backdrop-filter: blur(8px);
       box-shadow: 0 10px 25px rgba(0,0,0,.08);
-    }
-
-    .face-fog {
-      position: absolute;
-      z-index: 2;
-      top: 27%;
-      left: 7%;
-      width: 31%;
-      height: 46%;
-      border-radius: 50%;
-      backdrop-filter: blur(16px) saturate(0.9);
-      -webkit-backdrop-filter: blur(16px) saturate(0.9);
-      background:
-        radial-gradient(circle at center, rgba(255,255,255,.30) 0%, rgba(255,255,255,.18) 48%, rgba(255,255,255,.08) 72%, rgba(255,255,255,0) 100%);
-      box-shadow: 0 0 30px rgba(255,255,255,.15);
-      pointer-events: none;
-    }
-
-    .face-fog:after {
-      content: "";
-      position: absolute;
-      inset: 12%;
-      border-radius: 50%;
-      background: rgba(255,255,255,.10);
-      filter: blur(10px);
     }
 
     .intro-copy {
@@ -314,7 +389,7 @@
     }
 
     .intro-title {
-      font-family: Georgia, 'Times New Roman', serif;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(2rem, 4.6vw, 3rem);
       line-height: 1.08;
       margin: 0 0 16px;
@@ -371,7 +446,9 @@
       box-shadow: var(--shadow);
     }
 
-    .details { padding: 30px; }
+    .details {
+      padding: 30px;
+    }
 
     .section-title {
       font-family: Georgia, serif;
@@ -437,7 +514,9 @@
       color: var(--muted);
     }
 
-    .notes li + li { margin-top: 8px; }
+    .notes li + li {
+      margin-top: 8px;
+    }
 
     .booking {
       padding: 28px;
@@ -538,9 +617,14 @@
       box-shadow: 0 16px 32px rgba(154,79,49,.28);
     }
 
-    .day.today { border-color: rgba(154,79,49,.38); }
+    .day.today {
+      border-color: rgba(154,79,49,.38);
+    }
 
-    .slot-wrap { display: grid; gap: 12px; }
+    .slot-wrap {
+      display: grid;
+      gap: 12px;
+    }
 
     .slot-title {
       font-size: .95rem;
@@ -583,8 +667,14 @@
       gap: 14px;
     }
 
-    .field { display: grid; gap: 8px; }
-    .field.full { grid-column: 1 / -1; }
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
 
     label {
       font-size: .9rem;
@@ -655,7 +745,9 @@
       transition: .18s ease;
     }
 
-    .submit-btn:hover { transform: translateY(-1px); }
+    .submit-btn:hover {
+      transform: translateY(-1px);
+    }
 
     .footnote {
       color: #7c6254;
@@ -687,37 +779,87 @@
         grid-template-columns: 1fr;
       }
 
-      .hero { min-height: auto; }
-      .hero-side { padding-top: 0; }
-      .portrait-card { width: min(100%, 560px); aspect-ratio: 16/9; }
-      .intro-images { min-height: auto; }
+      .hero {
+        min-height: auto;
+      }
 
-      .intro-photo.large { min-height: 320px; }
-      .intro-photo { min-height: 220px; }
+      .hero-side {
+        padding-top: 0;
+      }
 
-      .face-fog {
-        top: 26%;
-        left: 7%;
-        width: 34%;
-        height: 48%;
+      .portrait-card {
+        width: min(100%, 560px);
+        aspect-ratio: 16/9;
+      }
+
+      .intro-images {
+        min-height: auto;
+      }
+
+      .intro-photo.large {
+        min-height: 320px;
+      }
+
+      .intro-photo.small {
+        min-height: 220px;
+      }
+
+      .intro-photo.small > img.blur-clone {
+        clip-path: ellipse(13.5% 24.5% at 35% 54%);
+        -webkit-clip-path: ellipse(13.5% 24.5% at 35% 54%);
+      }
+
+      .intro-photo.small::after {
+        left: 22%;
+        top: 30%;
+        width: 27%;
+        height: 49%;
       }
     }
 
     @media (max-width: 720px) {
-      .hero-copy { padding: 34px 24px; }
-      .details, .booking, .intro-copy { padding: 22px; }
-      .bullets, .booking-form, .intro-highlights { grid-template-columns: 1fr; }
-      .container { width: min(100% - 20px, 1180px); }
-      .hero-wrap { padding-top: 14px; }
+      .hero-copy {
+        padding: 34px 24px;
+      }
 
-      .intro-photo.large { min-height: 280px; }
-      .intro-photo { min-height: 200px; }
+      .details,
+      .booking,
+      .intro-copy {
+        padding: 22px;
+      }
 
-      .face-fog {
-        top: 25%;
-        left: 6%;
-        width: 36%;
-        height: 48%;
+      .bullets,
+      .booking-form,
+      .intro-highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        width: min(100% - 20px, 1180px);
+      }
+
+      .hero-wrap {
+        padding-top: 14px;
+      }
+
+      .intro-photo.large {
+        min-height: 280px;
+      }
+
+      .intro-photo.small {
+        min-height: 200px;
+      }
+
+      .intro-photo.small > img.blur-clone {
+        clip-path: ellipse(15% 26% at 35% 54%);
+        -webkit-clip-path: ellipse(15% 26% at 35% 54%);
+      }
+
+      .intro-photo.small::after {
+        left: 20%;
+        top: 29%;
+        width: 30%;
+        height: 51%;
       }
     }
   </style>
@@ -737,6 +879,7 @@
             <span class="fact-pill">Email notification</span>
           </div>
         </div>
+
         <div class="hero-side">
           <div class="portrait-card">
             <div class="portrait-top">
@@ -744,6 +887,7 @@
               <h2>Porvoo in Japanese</h2>
               <p>A warm, personal tour page with an integrated booking calendar and email notification workflow.</p>
             </div>
+
             <div class="scene" aria-hidden="true">
               <div class="shore"></div>
               <div class="shore2"></div>
@@ -760,19 +904,32 @@
     </div>
   </div>
 
-  <!-- NEW INTRO SECTION -->
+  <!-- INTRO SECTION -->
   <div class="intro-wrap">
     <div class="container">
       <section class="intro-grid">
         <div class="intro-images">
           <div class="intro-photo large">
-            <img src="IMG20240601141951.jpg" alt="Tour guide portrait in an outdoor setting">
+            <img
+              class="base-photo"
+              src="IMG20240601141951.jpg"
+              alt="Guide portrait outdoors in Porvoo"
+            />
             <span class="photo-badge">Your local guide in Porvoo</span>
           </div>
 
-          <div class="intro-photo">
-            <img src="IMG20240331085216.jpg" alt="Spring portrait under blooming trees">
-            <div class="face-fog" aria-hidden="true"></div>
+          <div class="intro-photo small">
+            <img
+              class="base-photo"
+              src="IMG20240331085216.jpg"
+              alt="Spring portrait in front of cherry blossoms"
+            />
+            <img
+              class="blur-clone"
+              src="IMG20240331085216.jpg"
+              alt=""
+              aria-hidden="true"
+            />
             <span class="photo-badge">Japanese-friendly local experience</span>
           </div>
         </div>
@@ -824,7 +981,11 @@
   <main class="container main-grid">
     <section class="card details">
       <h2 class="section-title">A guided stroll through stories and streets</h2>
-      <p class="lede">This template follows the same overall content pattern as the inspiration page: a storytelling introduction, practical tour details, booking form fields like name, email, telephone, date, time, participant count, and a note/terms section.</p>
+      <p class="lede">
+        This template follows the same overall content pattern as the inspiration page:
+        a storytelling introduction, practical tour details, booking form fields like
+        name, email, telephone, date, time, participant count, and a note/terms section.
+      </p>
 
       <div class="bullets">
         <div class="bullet">
@@ -849,7 +1010,7 @@
         <h3>Good to know</h3>
         <ul>
           <li>Old Porvoo has cobblestone streets, so comfortable shoes are recommended.</li>
-          <li>This page now offers weekday evening slots from 17:00 to 19:00, and weekend slots at 08:00, 10:00, 12:00, 14:00, 16:00, and 18:00.</li>
+          <li>This page offers weekday evening slots from 17:00 to 19:00, and weekend slots at 08:00, 10:00, 12:00, 14:00, 16:00, and 18:00.</li>
           <li>The booking form is wired to send submissions to your Gmail via FormSubmit after you activate the form once.</li>
           <li>If you want real shared availability sync or automatic blocking of booked slots, add a backend or calendar integration later.</li>
         </ul>
@@ -868,6 +1029,7 @@
           <div class="month-title" id="monthTitle">Month Year</div>
           <button class="nav-btn" id="nextMonth" type="button" aria-label="Next month">›</button>
         </div>
+
         <div class="dow">
           <div>Mon</div>
           <div>Tue</div>
@@ -877,6 +1039,7 @@
           <div>Sat</div>
           <div>Sun</div>
         </div>
+
         <div class="days" id="calendarDays"></div>
       </div>
 
@@ -951,7 +1114,7 @@
     </section>
   </main>
 
-  <div class="container footer">contact: markuslamminen97@gmail</div>
+  <div class="container footer">contact: markuslamminen97@gmail.com</div>
 
   <script>
     const monthTitle = document.getElementById('monthTitle');
