@@ -955,13 +955,13 @@
         </div>
 
         <div class="dow">
-          <div>Mon</div>
-          <div>Tue</div>
-          <div>Wed</div>
-          <div>Thu</div>
-          <div>Fri</div>
-          <div>Sat</div>
-          <div>Sun</div>
+          <div>月</div>
+          <div>火</div>
+          <div>水</div>
+          <div>木</div>
+          <div>金</div>
+          <div>土</div>
+          <div>日</div>
         </div>
 
         <div class="days" id="calendarDays"></div>
@@ -971,8 +971,8 @@
         <div class="slot-title">可能な時間です</div>
         <div class="slots" id="timeSlots"></div>
         <div class="selection-box">
-          <span><strong>選んだ日程:</strong> <span id="selectedDateText">Choose a date</span></span>
-          <span><strong>選んだ時間:</strong> <span id="selectedTimeText">Choose a time</span></span>
+          <span><strong>選んだ日程:</strong> <span id="selectedDateText">日程を選んでください</span></span>
+          <span><strong>選んだ時間:</strong> <span id="selectedTimeText">時間を選んでください</span></span>
         </div>
       </div>
 
@@ -1150,7 +1150,7 @@
       if (!selectedDate) {
         const info = document.createElement('div');
         info.className = 'footnote';
-        info.textContent = 'Pick a date first to see available times.';
+        info.textContent = '日付を選択すると、予約可能な時間が表示されます';
         timeSlotsEl.appendChild(info);
         return;
       }
@@ -1160,7 +1160,7 @@
       if (!slots.length) {
         const info = document.createElement('div');
         info.className = 'footnote';
-        info.textContent = 'No slots available on this day.';
+        info.textContent = 'この日は空きがありません';
         timeSlotsEl.appendChild(info);
         return;
       }
@@ -1202,7 +1202,7 @@
     document.getElementById('bookingForm').addEventListener('submit', (e) => {
       if (!selectedDate || !selectedTime) {
         e.preventDefault();
-        alert('Please select a date and time before sending the booking request.');
+        alert('ご予約リクエストを送信する前に、日付と時間を選択してください。');
       }
     });
 
