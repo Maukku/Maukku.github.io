@@ -933,7 +933,7 @@
       </div>
 
       <div class="notes">
-        <h3>Good to know</h3>
+        <h3>ご確認してください</h3>
         <ul>
           <li>ポルヴォー旧市街は石畳の道が続いているため、歩きやすい靴でお越しいただくことをおすすめします</li>
           <li>このツアーは副業でやっていますので予約時間が制限されています。平日の夕方は17:00〜19:00の間でご案内可能です。また、週末は08:00、10:00、12:00、14:00、16:00、18:00の各時間帯でご予約いただけます</li>
@@ -968,16 +968,16 @@
       </div>
 
       <div class="slot-wrap">
-        <div class="slot-title">Available start times</div>
+        <div class="slot-title">可能な時間です</div>
         <div class="slots" id="timeSlots"></div>
         <div class="selection-box">
-          <span><strong>Selected date:</strong> <span id="selectedDateText">Choose a date</span></span>
-          <span><strong>Selected time:</strong> <span id="selectedTimeText">Choose a time</span></span>
+          <span><strong>選んだ日程:</strong> <span id="selectedDateText">Choose a date</span></span>
+          <span><strong>選んだ時間:</strong> <span id="selectedTimeText">Choose a time</span></span>
         </div>
       </div>
 
       <div class="success-note" id="localSuccess">
-        Ready to submit. After the first live submission, confirm the activation email FormSubmit sends to your Gmail once.
+        選んだ情報は大丈夫ですか？最初の送信後、FormSubmitからGmailに送られる認証メールを一度ご確認ください。
       </div>
 
       <form class="booking-form" id="bookingForm" action="https://formsubmit.co/markuslamminen97@gmail.com" method="POST">
@@ -990,55 +990,54 @@
         <input type="hidden" name="Start Point" value="Old Town Hall / by agreement" />
 
         <div class="field">
-          <label for="name">Your Name</label>
+          <label for="name">名前</label>
           <input id="name" name="Name" type="text" placeholder="Your name" required />
         </div>
 
         <div class="field">
-          <label for="email">Your Email</label>
+          <label for="email">メール</label>
           <input id="email" name="Email" type="email" placeholder="you@example.com" required />
         </div>
 
         <div class="field">
-          <label for="phone">Your Telephone</label>
-          <input id="phone" name="Telephone" type="tel" placeholder="+358 ..." required />
+          <label for="phone">電話番号</label>
+          <input id="phone" name="Telephone" type="tel" placeholder="+81 ..." required />
         </div>
 
         <div class="field">
-          <label for="participants">Number of Participants</label>
+          <label for="participants">参加者の人数</label>
           <select id="participants" name="Participants" required>
-            <option value="">Select</option>
-            <option>1 person</option>
-            <option>2 people</option>
-            <option>3 people</option>
-            <option>4 people</option>
-            <option>5+ people</option>
+            <option value="">人数</option>
+            <option>1人</option>
+            <option>2人</option>
+            <option>3人</option>
+            <option>4人</option>
+            <option>5+人</option>
           </select>
         </div>
 
         <div class="field full">
-          <label for="notes">Additional Notes (optional)</label>
+          <label for="notes">他の情報がありますか？（任意）</label>
           <textarea id="notes" name="Additional Notes" placeholder="Tell me about your interests, preferred meeting point, or any custom requests."></textarea>
         </div>
 
         <div class="field full">
           <label class="checkline" for="terms">
             <input id="terms" name="Accepted Terms" type="checkbox" value="Yes" required />
-            <span>I confirm that I have read and accepted the booking terms and understand this is a booking request.</span>
+            <span>予約条件を読み、同意しました。また、これは予約リクエストであることを理解しています。</span>
           </label>
         </div>
 
         <div class="field full">
-          <button class="submit-btn" type="submit">Request booking</button>
+          <button class="submit-btn" type="submit">予約します</button>
           <div class="footnote">
-            Tip: deploy this file to your real website URL before testing. FormSubmit sends a one-time confirmation email to activate the form the first time it is submitted.
           </div>
         </div>
       </form>
     </section>
   </main>
 
-  <div class="container footer">contact: markuslamminen97@gmail.com</div>
+  <div class="container footer">連絡先: markuslamminen97@gmail.com</div>
 
   <script>
     const monthTitle = document.getElementById('monthTitle');
