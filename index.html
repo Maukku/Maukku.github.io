@@ -265,6 +265,7 @@
     }
 
     /* ===== INTRO SECTION ===== */
+
     .intro-wrap {
       padding: 0 0 28px;
     }
@@ -299,7 +300,6 @@
       border: 1px solid rgba(255,255,255,.65);
       background: #e8ddd4;
       box-shadow: 0 16px 38px rgba(69, 39, 24, 0.10);
-      isolation: isolate;
     }
 
     .intro-photo.large {
@@ -310,45 +310,14 @@
       min-height: 220px;
     }
 
-    .intro-photo > img.base-photo,
-    .intro-photo > img.blur-clone {
+    .intro-photo img {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-
-    .intro-photo > img.base-photo {
-      z-index: 1;
       transform: scale(1.01);
-    }
-
-    /* reliable blur layer */
-    .intro-photo.small > img.blur-clone {
-      z-index: 2;
-      transform: scale(1.03);
-      filter: blur(18px) brightness(1.04);
-      pointer-events: none;
-      opacity: 0.98;
-      clip-path: ellipse(12.5% 24% at 35.5% 54%);
-      -webkit-clip-path: ellipse(12.5% 24% at 35.5% 54%);
-    }
-
-    /* soft fog glow on top of blur */
-    .intro-photo.small::after {
-      content: "";
-      position: absolute;
-      z-index: 2;
-      left: 23%;
-      top: 30%;
-      width: 25%;
-      height: 48%;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,.14) 0%, rgba(255,255,255,.08) 58%, rgba(255,255,255,0) 100%);
-      pointer-events: none;
-      mix-blend-mode: screen;
     }
 
     .photo-badge {
@@ -803,18 +772,6 @@
       .intro-photo.small {
         min-height: 220px;
       }
-
-      .intro-photo.small > img.blur-clone {
-        clip-path: ellipse(13.5% 24.5% at 35% 54%);
-        -webkit-clip-path: ellipse(13.5% 24.5% at 35% 54%);
-      }
-
-      .intro-photo.small::after {
-        left: 22%;
-        top: 30%;
-        width: 27%;
-        height: 49%;
-      }
     }
 
     @media (max-width: 720px) {
@@ -848,18 +805,6 @@
 
       .intro-photo.small {
         min-height: 200px;
-      }
-
-      .intro-photo.small > img.blur-clone {
-        clip-path: ellipse(15% 26% at 35% 54%);
-        -webkit-clip-path: ellipse(15% 26% at 35% 54%);
-      }
-
-      .intro-photo.small::after {
-        left: 20%;
-        top: 29%;
-        width: 30%;
-        height: 51%;
       }
     }
   </style>
@@ -910,26 +855,12 @@
       <section class="intro-grid">
         <div class="intro-images">
           <div class="intro-photo large">
-            <img
-              class="base-photo"
-              src="IMG20240601141951.jpg"
-              alt="Guide portrait outdoors in Porvoo"
-            />
+            <img src="IMG20240601141951.jpg" alt="Your local guide in Porvoo" />
             <span class="photo-badge">Your local guide in Porvoo</span>
           </div>
 
           <div class="intro-photo small">
-            <img
-              class="base-photo"
-              src="IMG20240331085216.jpg"
-              alt="Spring portrait in front of cherry blossoms"
-            />
-            <img
-              class="blur-clone"
-              src="IMG20240331085216.jpg"
-              alt=""
-              aria-hidden="true"
-            />
+            <img src="IMG20240331085216.jpg" alt="Japanese-friendly local experience" />
             <span class="photo-badge">Japanese-friendly local experience</span>
           </div>
         </div>
