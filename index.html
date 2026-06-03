@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,8 +19,10 @@
       --radius-xl: 28px;
       --radius-lg: 20px;
     }
+
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
+
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
@@ -32,8 +33,11 @@
       min-height: 100vh;
       line-height: 1.55;
     }
+
     .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+
     .hero-wrap { padding: 34px 0 28px; }
+
     .hero {
       position: relative;
       overflow: hidden;
@@ -47,6 +51,7 @@
       grid-template-columns: 1.2fr .8fr;
       align-items: stretch;
     }
+
     .hero:before {
       content: "";
       position: absolute;
@@ -57,37 +62,102 @@
         linear-gradient(to bottom, rgba(255,255,255,.05), rgba(0,0,0,.18));
       pointer-events: none;
     }
-    .hero-copy { padding: 52px 48px; color: #fff8f3; position: relative; z-index: 1; }
+
+    .hero-copy {
+      padding: 52px 48px;
+      color: #fff8f3;
+      position: relative;
+      z-index: 1;
+    }
+
     .eyebrow {
-      display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px;
-      background: rgba(255,255,255,.14); backdrop-filter: blur(6px); font-size: 13px; letter-spacing: .12em;
-      text-transform: uppercase; color: #f8e6d9;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      backdrop-filter: blur(6px);
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #f8e6d9;
     }
+
     h1 {
-      font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2.4rem, 5.4vw, 4.2rem);
-      line-height: 1.04; margin: 18px 0 18px; letter-spacing: -.02em; max-width: 11ch;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.4rem, 5.4vw, 4.2rem);
+      line-height: 1.04;
+      margin: 18px 0 18px;
+      letter-spacing: -.02em;
+      max-width: 11ch;
     }
-    .hero-copy p { max-width: 60ch; color: rgba(255,248,243,.92); font-size: 1.05rem; margin: 0 0 18px; }
-    .hero-facts { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 0; }
+
+    .hero-copy p {
+      max-width: 60ch;
+      color: rgba(255,248,243,.92);
+      font-size: 1.05rem;
+      margin: 0 0 18px;
+    }
+
+    .hero-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0 0;
+    }
+
     .fact-pill {
-      padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.14); color: #fff;
-      border: 1px solid rgba(255,255,255,.16); font-size: .96rem;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.16);
+      font-size: .96rem;
     }
-    .hero-side { position: relative; display: grid; place-items: center; padding: 28px; }
+
+    .hero-side {
+      position: relative;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
+
     .portrait-card {
-      width: min(100%, 380px); aspect-ratio: 4 / 5; border-radius: 28px;
+      width: min(100%, 380px);
+      aspect-ratio: 4 / 5;
+      border-radius: 28px;
       background: linear-gradient(180deg, rgba(248,231,214,.96), rgba(236,211,191,.88));
-      border: 1px solid rgba(255,255,255,.35); box-shadow: 0 24px 60px rgba(33, 19, 14, .18);
-      position: relative; overflow: hidden; padding: 28px; color: #3c251b;
+      border: 1px solid rgba(255,255,255,.35);
+      box-shadow: 0 24px 60px rgba(33, 19, 14, .18);
+      position: relative;
+      overflow: hidden;
+      padding: 28px;
+      color: #3c251b;
     }
+
     .portrait-card:before {
-      content: "Porvoo"; position: absolute; top: 18px; right: -8px; font-family: Georgia, serif; font-size: 5.8rem;
-      line-height: 1; color: rgba(122, 70, 44, .07); transform: rotate(-6deg); pointer-events: none;
+      content: "Porvoo";
+      position: absolute;
+      top: 18px;
+      right: -8px;
+      font-family: Georgia, serif;
+      font-size: 5.8rem;
+      line-height: 1;
+      color: rgba(122, 70, 44, .07);
+      transform: rotate(-6deg);
+      pointer-events: none;
     }
+
     .scene {
-      position: absolute; inset: auto 18px 18px 18px; height: 42%; border-radius: 22px;
-      background: linear-gradient(180deg, #d9e5ef 0%, #d7e7f1 44%, #7da2bd 45%, #55738d 100%); overflow: hidden;
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      height: 42%;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #d9e5ef 0%, #d7e7f1 44%, #7da2bd 45%, #55738d 100%);
+      overflow: hidden;
     }
+
     .shore, .shore2, .roof, .roof2, .house, .house2, .house3, .church { position: absolute; }
     .shore { left: 0; right: 0; bottom: 0; height: 40%; background: linear-gradient(180deg, #866451, #7c5543); }
     .shore2 { left: 0; right: 0; bottom: 30%; height: 8px; background: rgba(255,255,255,.35); }
@@ -97,98 +167,558 @@
     .roof2 { width: 88px; height: 16px; left: 116px; bottom: calc(34% + 62px); background: #41261e; transform: skew(-20deg); }
     .house3 { width: 70px; height: 54px; left: 200px; bottom: 34%; background: #be5538; }
     .church {
-      width: 0; height: 0; right: 24px; bottom: 34%; border-left: 28px solid transparent;
-      border-right: 28px solid transparent; border-bottom: 120px solid #efeee9; filter: drop-shadow(0 10px 20px rgba(0,0,0,.12));
+      width: 0;
+      height: 0;
+      right: 24px;
+      bottom: 34%;
+      border-left: 28px solid transparent;
+      border-right: 28px solid transparent;
+      border-bottom: 120px solid #efeee9;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.12));
     }
+
     .portrait-top { position: relative; z-index: 2; max-width: 230px; }
-    .mini-label { display: inline-block; font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: #8d5d48; margin-bottom: 14px; }
-    .portrait-card h2 { font-family: Georgia, serif; margin: 0 0 10px; font-size: 1.9rem; line-height: 1.1; }
-    .portrait-card p { margin: 0; color: #65493c; font-size: .98rem; }
-    .main-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 26px; padding: 0 0 42px; }
+    .mini-label {
+      display: inline-block;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #8d5d48;
+      margin-bottom: 14px;
+    }
+
+    .portrait-card h2 {
+      font-family: Georgia, serif;
+      margin: 0 0 10px;
+      font-size: 1.9rem;
+      line-height: 1.1;
+    }
+
+    .portrait-card p {
+      margin: 0;
+      color: #65493c;
+      font-size: .98rem;
+    }
+
+    /* ===== NEW INTRO SECTION ===== */
+    .intro-wrap {
+      padding: 0 0 28px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .intro-card {
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .intro-images {
+      display: grid;
+      grid-template-rows: 1.3fr .85fr;
+      gap: 16px;
+      height: 100%;
+      min-height: 620px;
+    }
+
+    .intro-photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      min-height: 240px;
+      box-shadow: 0 16px 38px rgba(69, 39, 24, 0.10);
+      border: 1px solid rgba(255,255,255,.65);
+      background: #e8ddd4;
+    }
+
+    .intro-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.01);
+    }
+
+    .intro-photo.large {
+      min-height: 380px;
+    }
+
+    .photo-badge {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      z-index: 2;
+      background: rgba(255,255,255,.82);
+      color: #5a3d2f;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: .86rem;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.85);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .face-fog {
+      position: absolute;
+      z-index: 2;
+      top: 27%;
+      left: 7%;
+      width: 31%;
+      height: 46%;
+      border-radius: 50%;
+      backdrop-filter: blur(16px) saturate(0.9);
+      -webkit-backdrop-filter: blur(16px) saturate(0.9);
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,.30) 0%, rgba(255,255,255,.18) 48%, rgba(255,255,255,.08) 72%, rgba(255,255,255,0) 100%);
+      box-shadow: 0 0 30px rgba(255,255,255,.15);
+      pointer-events: none;
+    }
+
+    .face-fog:after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border-radius: 50%;
+      background: rgba(255,255,255,.10);
+      filter: blur(10px);
+    }
+
+    .intro-copy {
+      padding: 34px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .intro-kicker {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(154,79,49,.08);
+      color: #8e5f49;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 700;
+    }
+
+    .intro-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2rem, 4.6vw, 3rem);
+      line-height: 1.08;
+      margin: 0 0 16px;
+      color: #2d2018;
+    }
+
+    .intro-copy p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .intro-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .intro-highlight {
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.67);
+    }
+
+    .intro-highlight strong {
+      display: block;
+      color: #5d3c2c;
+      font-size: .82rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .intro-highlight span {
+      color: var(--text);
+      font-weight: 600;
+      font-size: .98rem;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      padding: 0 0 42px;
+    }
+
     .card {
-      background: var(--card); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.6);
-      border-radius: var(--radius-xl); box-shadow: var(--shadow);
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
     }
+
     .details { padding: 30px; }
-    .section-title { font-family: Georgia, serif; font-size: 2rem; margin: 0 0 14px; line-height: 1.15; }
-    .lede { margin: 0 0 20px; color: var(--muted); font-size: 1.02rem; }
-    .bullets { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin: 0 0 26px; }
-    .bullet { padding: 16px; background: rgba(255,255,255,.64); border: 1px solid var(--line); border-radius: var(--radius-lg); }
-    .bullet-label { display: block; font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; color: #8d725f; margin-bottom: 6px; }
-    .bullet-value { display: block; font-size: 1rem; color: var(--text); font-weight: 600; }
-    .notes { padding: 24px; background: rgba(255,255,255,.55); border-radius: var(--radius-lg); border: 1px solid var(--line); }
-    .notes h3 { margin: 0 0 10px; font-size: 1rem; letter-spacing: .06em; text-transform: uppercase; color: #7e614d; }
-    .notes ul { margin: 0; padding-left: 18px; color: var(--muted); }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      margin: 0 0 14px;
+      line-height: 1.15;
+    }
+
+    .lede {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .bullets {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+      margin: 0 0 26px;
+    }
+
+    .bullet {
+      padding: 16px;
+      background: rgba(255,255,255,.64);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+    }
+
+    .bullet-label {
+      display: block;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #8d725f;
+      margin-bottom: 6px;
+    }
+
+    .bullet-value {
+      display: block;
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .notes {
+      padding: 24px;
+      background: rgba(255,255,255,.55);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+    }
+
+    .notes h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #7e614d;
+    }
+
+    .notes ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
     .notes li + li { margin-top: 8px; }
-    .booking { padding: 28px; display: grid; gap: 24px; }
-    .booking h2 { margin: 0 0 6px; font-family: Georgia, serif; font-size: 2rem; line-height: 1.1; }
-    .booking .sub { margin: 0; color: var(--muted); }
-    .calendar-shell { border: 1px solid var(--line); border-radius: 22px; padding: 20px; background: rgba(255,255,255,.66); }
-    .calendar-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
-    .month-title { font-weight: 700; font-size: 1.08rem; }
+
+    .booking {
+      padding: 28px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .booking h2 {
+      margin: 0 0 6px;
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+
+    .booking .sub {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .calendar-shell {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      background: rgba(255,255,255,.66);
+    }
+
+    .calendar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .month-title {
+      font-weight: 700;
+      font-size: 1.08rem;
+    }
+
     .nav-btn {
-      border: 1px solid var(--line); background: white; color: var(--text); width: 40px; height: 40px;
-      border-radius: 999px; cursor: pointer; font-size: 1.1rem; transition: .18s ease;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: .18s ease;
     }
-    .nav-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,.08); }
-    .dow, .days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
-    .dow div { text-align: center; font-size: .77rem; text-transform: uppercase; letter-spacing: .08em; color: #8b7363; padding-bottom: 8px; }
+
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(0,0,0,.08);
+    }
+
+    .dow, .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+
+    .dow div {
+      text-align: center;
+      font-size: .77rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #8b7363;
+      padding-bottom: 8px;
+    }
+
     .day {
-      aspect-ratio: 1 / 1; border-radius: 16px; border: 1px solid transparent; background: rgba(255,255,255,.78);
-      cursor: pointer; font-size: .98rem; color: var(--text); transition: .18s ease;
+      aspect-ratio: 1 / 1;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      background: rgba(255,255,255,.78);
+      cursor: pointer;
+      font-size: .98rem;
+      color: var(--text);
+      transition: .18s ease;
     }
-    .day:hover:not(.disabled):not(.empty) { transform: translateY(-1px); border-color: #d9c1b1; }
-    .day.disabled, .day.empty { cursor: default; opacity: .45; background: rgba(255,255,255,.4); }
-    .day.selected { background: linear-gradient(180deg, var(--accent), #7d4128); color: white; box-shadow: 0 16px 32px rgba(154,79,49,.28); }
+
+    .day:hover:not(.disabled):not(.empty) {
+      transform: translateY(-1px);
+      border-color: #d9c1b1;
+    }
+
+    .day.disabled,
+    .day.empty {
+      cursor: default;
+      opacity: .45;
+      background: rgba(255,255,255,.4);
+    }
+
+    .day.selected {
+      background: linear-gradient(180deg, var(--accent), #7d4128);
+      color: white;
+      box-shadow: 0 16px 32px rgba(154,79,49,.28);
+    }
+
     .day.today { border-color: rgba(154,79,49,.38); }
+
     .slot-wrap { display: grid; gap: 12px; }
-    .slot-title { font-size: .95rem; font-weight: 700; color: #6f5648; letter-spacing: .03em; }
-    .slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(108px, 1fr)); gap: 10px; }
-    .slot {
-      border: 1px solid var(--line); background: white; color: var(--text); border-radius: 14px;
-      padding: 12px 14px; cursor: pointer; font-weight: 600; transition: .18s ease;
+
+    .slot-title {
+      font-size: .95rem;
+      font-weight: 700;
+      color: #6f5648;
+      letter-spacing: .03em;
     }
-    .slot:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
-    .slot.selected { background: linear-gradient(180deg, #b86744, var(--accent)); color: white; border-color: transparent; }
-    .booking-form { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+
+    .slots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(108px, 1fr));
+      gap: 10px;
+    }
+
+    .slot {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--text);
+      border-radius: 14px;
+      padding: 12px 14px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: .18s ease;
+    }
+
+    .slot:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.08);
+    }
+
+    .slot.selected {
+      background: linear-gradient(180deg, #b86744, var(--accent));
+      color: white;
+      border-color: transparent;
+    }
+
+    .booking-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+    }
+
     .field { display: grid; gap: 8px; }
     .field.full { grid-column: 1 / -1; }
-    label { font-size: .9rem; color: #6f5648; font-weight: 700; }
+
+    label {
+      font-size: .9rem;
+      color: #6f5648;
+      font-weight: 700;
+    }
+
     input, select, textarea {
-      width: 100%; border: 1px solid var(--line); border-radius: 14px; padding: 14px 15px;
-      background: rgba(255,255,255,.95); color: var(--text); font: inherit; outline: none; transition: .18s ease;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 15px;
+      background: rgba(255,255,255,.95);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: .18s ease;
     }
-    input:focus, select:focus, textarea:focus { border-color: rgba(154,79,49,.45); box-shadow: 0 0 0 4px rgba(154,79,49,.09); }
-    textarea { min-height: 120px; resize: vertical; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(154,79,49,.45);
+      box-shadow: 0 0 0 4px rgba(154,79,49,.09);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
     .selection-box {
-      font-size: .95rem; color: #6f5648; background: #fff; border: 1px solid var(--line);
-      border-radius: 16px; padding: 12px 14px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+      font-size: .95rem;
+      color: #6f5648;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
     }
-    .checkline { display: flex; gap: 10px; align-items: flex-start; font-size: .92rem; color: var(--muted); }
-    .checkline input { width: 18px; height: 18px; flex: 0 0 auto; margin-top: 3px; }
+
+    .checkline {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .checkline input {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      margin-top: 3px;
+    }
+
     .submit-btn {
-      border: none; border-radius: 999px; padding: 16px 24px; background: linear-gradient(180deg, #b56644, var(--accent));
-      color: white; font: inherit; font-weight: 800; cursor: pointer; box-shadow: 0 18px 32px rgba(154,79,49,.28); transition: .18s ease;
+      border: none;
+      border-radius: 999px;
+      padding: 16px 24px;
+      background: linear-gradient(180deg, #b56644, var(--accent));
+      color: white;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 18px 32px rgba(154,79,49,.28);
+      transition: .18s ease;
     }
+
     .submit-btn:hover { transform: translateY(-1px); }
-    .footnote { color: #7c6254; font-size: .88rem; margin-top: -6px; }
-    .success-note {
-      display: none; padding: 14px 16px; border-radius: 16px; background: rgba(59,122,87,.12);
-      color: var(--success); border: 1px solid rgba(59,122,87,.24); font-weight: 600;
+
+    .footnote {
+      color: #7c6254;
+      font-size: .88rem;
+      margin-top: -6px;
     }
-    .footer { text-align: center; color: #7d6657; font-size: .88rem; padding: 0 0 28px; }
+
+    .success-note {
+      display: none;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(59,122,87,.12);
+      color: var(--success);
+      border: 1px solid rgba(59,122,87,.24);
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      color: #7d6657;
+      font-size: .88rem;
+      padding: 0 0 28px;
+    }
+
     @media (max-width: 980px) {
-      .hero, .main-grid { grid-template-columns: 1fr; }
+      .hero,
+      .main-grid,
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
       .hero { min-height: auto; }
       .hero-side { padding-top: 0; }
       .portrait-card { width: min(100%, 560px); aspect-ratio: 16/9; }
+      .intro-images { min-height: auto; }
+
+      .intro-photo.large { min-height: 320px; }
+      .intro-photo { min-height: 220px; }
+
+      .face-fog {
+        top: 26%;
+        left: 7%;
+        width: 34%;
+        height: 48%;
+      }
     }
+
     @media (max-width: 720px) {
       .hero-copy { padding: 34px 24px; }
-      .details, .booking { padding: 22px; }
-      .bullets, .booking-form { grid-template-columns: 1fr; }
+      .details, .booking, .intro-copy { padding: 22px; }
+      .bullets, .booking-form, .intro-highlights { grid-template-columns: 1fr; }
       .container { width: min(100% - 20px, 1180px); }
       .hero-wrap { padding-top: 14px; }
+
+      .intro-photo.large { min-height: 280px; }
+      .intro-photo { min-height: 200px; }
+
+      .face-fog {
+        top: 25%;
+        left: 6%;
+        width: 36%;
+        height: 48%;
+      }
     }
   </style>
 </head>
@@ -215,7 +745,75 @@
               <p>A warm, personal tour page with an integrated booking calendar and email notification workflow.</p>
             </div>
             <div class="scene" aria-hidden="true">
-              <div class="shore"></div><div class="shore2"></div><div class="house"></div><div class="roof"></div><div class="house2"></div><div class="roof2"></div><div class="house3"></div><div class="church"></div>
+              <div class="shore"></div>
+              <div class="shore2"></div>
+              <div class="house"></div>
+              <div class="roof"></div>
+              <div class="house2"></div>
+              <div class="roof2"></div>
+              <div class="house3"></div>
+              <div class="church"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- NEW INTRO SECTION -->
+  <div class="intro-wrap">
+    <div class="container">
+      <section class="intro-grid">
+        <div class="intro-images">
+          <div class="intro-photo large">
+            <img src="IMG20240601141951.jpg" alt="Tour guide portrait in an outdoor setting">
+            <span class="photo-badge">Your local guide in Porvoo</span>
+          </div>
+
+          <div class="intro-photo">
+            <img src="IMG20240331085216.jpg" alt="Spring portrait under blooming trees">
+            <div class="face-fog" aria-hidden="true"></div>
+            <span class="photo-badge">Japanese-friendly local experience</span>
+          </div>
+        </div>
+
+        <div class="intro-card intro-copy">
+          <span class="intro-kicker">About your guide</span>
+          <h2 class="intro-title">A local Porvoo experience in Japanese</h2>
+
+          <p>
+            Hi, I’m Markus. I have lived in Porvoo my whole life, and I enjoy sharing the places,
+            atmosphere, and small details that make this town feel special. Instead of a rushed group tour,
+            this experience is designed to feel personal, calm, and easy to enjoy.
+          </p>
+
+          <p>
+            I offer private walking tours in Japanese for visitors who want to explore Porvoo through local
+            stories, quiet streets, and a relaxed conversation. My goal is to make the experience feel natural,
+            friendly, and memorable from the first message to the end of the walk.
+          </p>
+
+          <p>
+            Whether you are visiting Finland for the first time or looking for a more authentic local perspective,
+            I would be happy to guide you through Porvoo at a comfortable pace.
+          </p>
+
+          <div class="intro-highlights">
+            <div class="intro-highlight">
+              <strong>Language</strong>
+              <span>Japanese guidance</span>
+            </div>
+            <div class="intro-highlight">
+              <strong>Style</strong>
+              <span>Private &amp; personal</span>
+            </div>
+            <div class="intro-highlight">
+              <strong>Location</strong>
+              <span>Local Porvoo knowledge</span>
+            </div>
+            <div class="intro-highlight">
+              <strong>Experience</strong>
+              <span>Relaxed walking tour</span>
             </div>
           </div>
         </div>
@@ -227,12 +825,26 @@
     <section class="card details">
       <h2 class="section-title">A guided stroll through stories and streets</h2>
       <p class="lede">This template follows the same overall content pattern as the inspiration page: a storytelling introduction, practical tour details, booking form fields like name, email, telephone, date, time, participant count, and a note/terms section.</p>
+
       <div class="bullets">
-        <div class="bullet"><span class="bullet-label">Duration</span><span class="bullet-value">Approx. 1 hour</span></div>
-        <div class="bullet"><span class="bullet-label">Language</span><span class="bullet-value">Japanese</span></div>
-        <div class="bullet"><span class="bullet-label">Starting point</span><span class="bullet-value">Old Town Hall / by agreement</span></div>
-        <div class="bullet"><span class="bullet-label">Booking notice</span><span class="bullet-value">Email notification sent to you</span></div>
+        <div class="bullet">
+          <span class="bullet-label">Duration</span>
+          <span class="bullet-value">Approx. 1 hour</span>
+        </div>
+        <div class="bullet">
+          <span class="bullet-label">Language</span>
+          <span class="bullet-value">Japanese</span>
+        </div>
+        <div class="bullet">
+          <span class="bullet-label">Starting point</span>
+          <span class="bullet-value">Old Town Hall / by agreement</span>
+        </div>
+        <div class="bullet">
+          <span class="bullet-label">Booking notice</span>
+          <span class="bullet-value">Email notification sent to you</span>
+        </div>
       </div>
+
       <div class="notes">
         <h3>Good to know</h3>
         <ul>
@@ -249,15 +861,25 @@
         <h2>Start your journey here</h2>
         <p class="sub">Choose a date from the calendar, pick a time, and send the booking request.</p>
       </div>
+
       <div class="calendar-shell">
         <div class="calendar-head">
           <button class="nav-btn" id="prevMonth" type="button" aria-label="Previous month">‹</button>
           <div class="month-title" id="monthTitle">Month Year</div>
           <button class="nav-btn" id="nextMonth" type="button" aria-label="Next month">›</button>
         </div>
-        <div class="dow"><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div></div>
+        <div class="dow">
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+          <div>Sun</div>
+        </div>
         <div class="days" id="calendarDays"></div>
       </div>
+
       <div class="slot-wrap">
         <div class="slot-title">Available start times</div>
         <div class="slots" id="timeSlots"></div>
@@ -266,7 +888,10 @@
           <span><strong>Selected time:</strong> <span id="selectedTimeText">Choose a time</span></span>
         </div>
       </div>
-      <div class="success-note" id="localSuccess">Ready to submit. After the first live submission, confirm the activation email FormSubmit sends to your Gmail once.</div>
+
+      <div class="success-note" id="localSuccess">
+        Ready to submit. After the first live submission, confirm the activation email FormSubmit sends to your Gmail once.
+      </div>
 
       <form class="booking-form" id="bookingForm" action="https://formsubmit.co/markuslamminen97@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New Porvoo Japanese Tour Booking" />
@@ -276,25 +901,51 @@
         <input type="hidden" name="Selected Date" id="hiddenDate" value="" />
         <input type="hidden" name="Selected Time" id="hiddenTime" value="" />
         <input type="hidden" name="Start Point" value="Old Town Hall / by agreement" />
-        <div class="field"><label for="name">Your Name</label><input id="name" name="Name" type="text" placeholder="Your name" required /></div>
-        <div class="field"><label for="email">Your Email</label><input id="email" name="Email" type="email" placeholder="you@example.com" required /></div>
-        <div class="field"><label for="phone">Your Telephone</label><input id="phone" name="Telephone" type="tel" placeholder="+358 ..." required /></div>
+
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input id="name" name="Name" type="text" placeholder="Your name" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Your Email</label>
+          <input id="email" name="Email" type="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="field">
+          <label for="phone">Your Telephone</label>
+          <input id="phone" name="Telephone" type="tel" placeholder="+358 ..." required />
+        </div>
+
         <div class="field">
           <label for="participants">Number of Participants</label>
           <select id="participants" name="Participants" required>
             <option value="">Select</option>
-            <option>1 person</option><option>2 people</option><option>3 people</option><option>4 people</option><option>5+ people</option>
+            <option>1 person</option>
+            <option>2 people</option>
+            <option>3 people</option>
+            <option>4 people</option>
+            <option>5+ people</option>
           </select>
         </div>
-        <div class="field full"><label for="notes">Additional Notes (optional)</label><textarea id="notes" name="Additional Notes" placeholder="Tell me about your interests, preferred meeting point, or any custom requests."></textarea></div>
+
         <div class="field full">
-          <label class="checkline" for="terms"><input id="terms" name="Accepted Terms" type="checkbox" value="Yes" required />
+          <label for="notes">Additional Notes (optional)</label>
+          <textarea id="notes" name="Additional Notes" placeholder="Tell me about your interests, preferred meeting point, or any custom requests."></textarea>
+        </div>
+
+        <div class="field full">
+          <label class="checkline" for="terms">
+            <input id="terms" name="Accepted Terms" type="checkbox" value="Yes" required />
             <span>I confirm that I have read and accepted the booking terms and understand this is a booking request.</span>
           </label>
         </div>
+
         <div class="field full">
           <button class="submit-btn" type="submit">Request booking</button>
-          <div class="footnote">Tip: deploy this file to your real website URL before testing. FormSubmit sends a one-time confirmation email to activate the form the first time it is submitted.</div>
+          <div class="footnote">
+            Tip: deploy this file to your real website URL before testing. FormSubmit sends a one-time confirmation email to activate the form the first time it is submitted.
+          </div>
         </div>
       </form>
     </section>
@@ -324,68 +975,122 @@
 
     let viewDate = new Date();
     viewDate.setDate(1);
+
     let selectedDate = null;
     let selectedTime = '';
+
     const today = new Date();
-    today.setHours(0,0,0,0);
+    today.setHours(0, 0, 0, 0);
 
     function formatDisplayDate(date) {
-      return new Intl.DateTimeFormat('en-GB', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+      return new Intl.DateTimeFormat('en-GB', {
+        weekday: 'short',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      }).format(date);
     }
+
     function formatISODate(date) {
       const y = date.getFullYear();
       const m = String(date.getMonth() + 1).padStart(2, '0');
       const d = String(date.getDate()).padStart(2, '0');
       return `${y}-${m}-${d}`;
     }
-    function getMondayFirstOffset(jsDay) { return (jsDay + 6) % 7; }
+
+    function getMondayFirstOffset(jsDay) {
+      return (jsDay + 6) % 7;
+    }
 
     function renderCalendar() {
       calendarDays.innerHTML = '';
+
       const year = viewDate.getFullYear();
       const month = viewDate.getMonth();
-      monthTitle.textContent = new Intl.DateTimeFormat('en-GB', { month: 'long', year: 'numeric' }).format(viewDate);
+
+      monthTitle.textContent = new Intl.DateTimeFormat('en-GB', {
+        month: 'long',
+        year: 'numeric'
+      }).format(viewDate);
+
       const firstDay = new Date(year, month, 1);
       const offset = getMondayFirstOffset(firstDay.getDay());
       const daysInMonth = new Date(year, month + 1, 0).getDate();
+
       for (let i = 0; i < offset; i++) {
         const filler = document.createElement('button');
-        filler.className = 'day empty'; filler.type = 'button'; filler.disabled = true; calendarDays.appendChild(filler);
+        filler.className = 'day empty';
+        filler.type = 'button';
+        filler.disabled = true;
+        calendarDays.appendChild(filler);
       }
+
       for (let day = 1; day <= daysInMonth; day++) {
         const date = new Date(year, month, day);
-        date.setHours(0,0,0,0);
+        date.setHours(0, 0, 0, 0);
+
         const btn = document.createElement('button');
-        btn.type = 'button'; btn.className = 'day'; btn.textContent = day;
+        btn.type = 'button';
+        btn.className = 'day';
+        btn.textContent = day;
+
         const isPast = date < today;
         const isToday = date.getTime() === today.getTime();
         const isSelected = selectedDate && date.getTime() === selectedDate.getTime();
+
         if (isPast) btn.classList.add('disabled');
         if (isToday) btn.classList.add('today');
         if (isSelected) btn.classList.add('selected');
+
         btn.disabled = isPast;
+
         if (!isPast) {
           btn.addEventListener('click', () => {
-            selectedDate = date; selectedTime = ''; updateSelection(); renderCalendar(); renderSlots();
+            selectedDate = date;
+            selectedTime = '';
+            updateSelection();
+            renderCalendar();
+            renderSlots();
           });
         }
+
         calendarDays.appendChild(btn);
       }
     }
 
     function renderSlots() {
       timeSlotsEl.innerHTML = '';
+
       if (!selectedDate) {
-        const info = document.createElement('div'); info.className = 'footnote'; info.textContent = 'Pick a date first to see available times.'; timeSlotsEl.appendChild(info); return;
+        const info = document.createElement('div');
+        info.className = 'footnote';
+        info.textContent = 'Pick a date first to see available times.';
+        timeSlotsEl.appendChild(info);
+        return;
       }
+
       const slots = weekdaySlots[selectedDate.getDay()] || [];
+
       if (!slots.length) {
-        const info = document.createElement('div'); info.className = 'footnote'; info.textContent = 'No slots available on this day.'; timeSlotsEl.appendChild(info); return;
+        const info = document.createElement('div');
+        info.className = 'footnote';
+        info.textContent = 'No slots available on this day.';
+        timeSlotsEl.appendChild(info);
+        return;
       }
+
       slots.forEach(slot => {
         const btn = document.createElement('button');
-        btn.type = 'button'; btn.className = 'slot' + (selectedTime === slot ? ' selected' : ''); btn.textContent = slot;
-        btn.addEventListener('click', () => { selectedTime = slot; updateSelection(); renderSlots(); });
+        btn.type = 'button';
+        btn.className = 'slot' + (selectedTime === slot ? ' selected' : '');
+        btn.textContent = slot;
+
+        btn.addEventListener('click', () => {
+          selectedTime = slot;
+          updateSelection();
+          renderSlots();
+        });
+
         timeSlotsEl.appendChild(btn);
       });
     }
@@ -398,15 +1103,26 @@
       localSuccess.style.display = (selectedDate && selectedTime) ? 'block' : 'none';
     }
 
-    document.getElementById('prevMonth').addEventListener('click', () => { viewDate.setMonth(viewDate.getMonth() - 1); renderCalendar(); });
-    document.getElementById('nextMonth').addEventListener('click', () => { viewDate.setMonth(viewDate.getMonth() + 1); renderCalendar(); });
+    document.getElementById('prevMonth').addEventListener('click', () => {
+      viewDate.setMonth(viewDate.getMonth() - 1);
+      renderCalendar();
+    });
+
+    document.getElementById('nextMonth').addEventListener('click', () => {
+      viewDate.setMonth(viewDate.getMonth() + 1);
+      renderCalendar();
+    });
+
     document.getElementById('bookingForm').addEventListener('submit', (e) => {
       if (!selectedDate || !selectedTime) {
         e.preventDefault();
         alert('Please select a date and time before sending the booking request.');
       }
     });
-    updateSelection(); renderCalendar(); renderSlots();
+
+    updateSelection();
+    renderCalendar();
+    renderSlots();
   </script>
 </body>
 </html>
