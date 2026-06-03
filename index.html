@@ -944,7 +944,7 @@
     <section class="card booking">
       <div>
         <h2>予約準備万端？こちらでお願いします！</h2>
-        <p class="sub">日程を時間を選んでください.</p>
+        <p class="sub">日付と時間を選んでください.</p>
       </div>
 
       <div class="calendar-shell">
@@ -971,7 +971,7 @@
         <div class="slot-title">可能な時間です</div>
         <div class="slots" id="timeSlots"></div>
         <div class="selection-box">
-          <span><strong>選んだ日程:</strong> <span id="selectedDateText">日程を選んでください</span></span>
+          <span><strong>選んだ日付:</strong> <span id="selectedDateText">日付を選んでください</span></span>
           <span><strong>選んだ時間:</strong> <span id="selectedTimeText">時間を選んでください</span></span>
         </div>
       </div>
@@ -991,7 +991,7 @@
 
         <div class="field">
           <label for="name">名前</label>
-          <input id="name" name="Name" type="text" placeholder="Your name" required />
+          <input id="name" name="Name" type="text" placeholder="名前を書いてください" required />
         </div>
 
         <div class="field">
@@ -1182,8 +1182,8 @@
     }
 
     function updateSelection() {
-      selectedDateText.textContent = selectedDate ? formatDisplayDate(selectedDate) : 'Choose a date';
-      selectedTimeText.textContent = selectedTime || 'Choose a time';
+      selectedDateText.textContent = selectedDate ? formatDisplayDate(selectedDate) : '日付を選んでください';
+      selectedTimeText.textContent = selectedTime || '時間を選んでください';
       hiddenDate.value = selectedDate ? formatISODate(selectedDate) : '';
       hiddenTime.value = selectedTime || '';
       localSuccess.style.display = (selectedDate && selectedTime) ? 'block' : 'none';
