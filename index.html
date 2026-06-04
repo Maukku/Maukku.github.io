@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="KD7Ko7_CwhvpJ6Q63pUHEzukvo43Q99XIAHs6pT0tDU" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ポルヴォー出身としてポルヴォーでツアーを行っています！</title>
+
+  <!-- SEO: Title & Description -->
+  <title>ポルヴォー観光・プライベートツアー | 日本語ガイド</title>
+  <meta name="description" content="フィンランドのポルヴォーで日本語プライベートツアーを提供しています。地元生まれのフィンランド人ガイドと一緒にポルヴォー旧市街を散策しましょう。1人20ユーロ、約1時間のウォーキングツアーです。" />
+  <meta name="keywords" content="ポルヴォー観光, ポルヴォーツアー, ポルヴォー日本語ガイド, フィンランド観光, ポルヴォー旅行, ポルヴォー散策, フィンランドツアー日本語, Porvoo tour Japanese" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://maukku.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ポルヴォー観光・プライベートツアー | 日本語ガイド" />
+  <meta property="og:description" content="地元出身のフィンランド人ガイドと一緒にポルヴォーを日本語で探索しましょう。ポルヴォー旧市街のプライベートウォーキングツアー。1人20ユーロ。" />
+  <meta property="og:url" content="https://maukku.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://maukku.github.io/image2.jpg" />
+  <meta property="og:locale" content="ja_JP" />
+
+  <!-- Structured Data: TouristAttraction + Offer -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "name": "ポルヴォープライベートウォーキングツアー（日本語）",
+    "description": "フィンランド・ポルヴォー出身のガイドによる日本語プライベートウォーキングツアー。ポルヴォー旧市街を約1時間で散策します。",
+    "url": "https://maukku.github.io/",
+    "image": "https://maukku.github.io/image2.jpg",
+    "inLanguage": "ja",
+    "touristType": "日本人旅行者",
+    "itinerary": {
+      "@type": "ItemList",
+      "name": "ポルヴォー旧市街",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "古いポルヴォーの市役所（集合場所）"
+        }
+      ]
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "20",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock"
+    },
+    "provider": {
+      "@type": "Person",
+      "name": "マーカス",
+      "email": "markuslamminen97@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Porvoo",
+        "addressCountry": "FI"
+      }
+    }
+  }
+  </script>
+
   <style>
     :root {
       --bg: #f7f1ea;
@@ -129,7 +186,6 @@
       position: relative;
       overflow: hidden;
       z-index: 1;
-      /* subtle inner edge so photo blends into the hero gradient */
       --edge-fade: rgba(44,31,24,.55);
     }
 
@@ -141,12 +197,10 @@
       object-fit: cover;
       object-position: center top;
       display: block;
-      /* gentle fade on left edge to blend with dark hero gradient */
       mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 12%, black 32%);
       -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 12%, black 32%);
     }
 
-    /* optional subtle vignette overlay */
     .hero-side::after {
       content: "";
       position: absolute;
@@ -625,13 +679,11 @@
         min-height: auto;
       }
 
-      /* On tablet/mobile the photo goes on top as a banner */
       .hero-side {
         order: -1;
         height: 280px;
       }
 
-      /* Reset mask — full width photo, fade bottom into hero */
       .hero-side img {
         object-position: center 30%;
         mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
@@ -687,13 +739,11 @@
       .intro-photo.large { min-height: 260px; }
       .intro-photo.small { min-height: 180px; }
 
-      /* Calendar: tighter on small screens */
       .dow div { font-size: .65rem; }
       .day { font-size: .82rem; border-radius: 10px; }
       .calendar-shell { padding: 14px 12px; }
       .dow, .days { gap: 3px; }
 
-      /* Slots wrap nicely */
       .slots { grid-template-columns: repeat(3, 1fr); }
 
       .selection-box { flex-direction: column; gap: 6px; }
@@ -727,7 +777,7 @@
         </div>
 
         <div class="hero-side">
-          <img src="image2.jpg" alt="Porvoo landscape" />
+          <img src="image2.jpg" alt="ポルヴォー旧市街の風景" />
         </div>
       </section>
     </div>
@@ -739,12 +789,12 @@
       <section class="intro-grid">
         <div class="intro-images">
           <div class="intro-photo large">
-            <img src="IMG20240601141951.jpg" alt="Your local guide in Porvoo" />
+            <img src="IMG20240601141951.jpg" alt="ポルヴォー日本語ガイド マーカス" />
             <span class="photo-badge">私です！28歳です。インフラエンジニアとしてポルヴォーで働いています。いつも笑顔でいます</span>
           </div>
 
           <div class="intro-photo small">
-            <img src="image.jpg" alt="Japanese-friendly local experience" />
+            <img src="image.jpg" alt="日本人の妻とポルヴォーで暮らしています" />
             <span class="photo-badge">日本人の妻と一緒にフィンランドでのんびり暮らしています</span>
           </div>
         </div>
